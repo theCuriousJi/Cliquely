@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OurLinks</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<header>OurLinks</header>
+<body>
+  <%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
+
+  <% if current_user  %>
+  <h1>Logged in as <%=current_user.fname %></h1>
+    <%= button_to "Sign Out", session_url, method: :delete %>
+    <%else%>
+    <a href="<%=new_session_url%>">Sign In </a>
+    <a href="<%=new_user_url%>">Sign Up </a>
+  <%end%>
+
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<%if !current_user%>
+<h1>Sign In</h1>
+
+<form action="<%=session_url%>" method="post">
+
+  <label>Email Address</label>
+  <input type="text" name="user[email]" value="">
+  <label >Password</label>
+  <input type="password" name="user[password]" value="">
+
+  <input type="submit" name="Submit" class="btn btn-primary">
+
+</form>
+
+<%end%>
