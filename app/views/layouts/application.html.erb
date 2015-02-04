@@ -12,7 +12,7 @@
   <%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
 
   <% if current_user  %>
-  <h1>Logged in as <%=current_user.fname %></h1>
+  <h5 class="logged-in">Logged in as <%=current_user.fname %></h5>
     <%= button_to "Sign Out", session_url, method: :delete %>
     <%else%>
     <a href="<%=new_session_url%>">Sign In </a>
