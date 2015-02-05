@@ -32,8 +32,8 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
   },
 
   addGroupsView: function () {
-    var postsGroupView = new OurLinks.Views.GroupIndex({collection: OurLinks.groups})
-    this.addSubview('ul.groups', postsGroupView);
+    var groupsIndexView = new OurLinks.Views.GroupIndex({collection: OurLinks.groups})
+    this.addSubview('ul.groups', groupsIndexView);
   },
 
   render: function () {

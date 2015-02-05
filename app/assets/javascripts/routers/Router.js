@@ -3,11 +3,13 @@ OurLinks.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
     this.collection = OurLinks.posts;
     this.groups = OurLinks.groups;
+    this.users = OurLinks.users;
   },
 
   routes: {
     '': 'root',
     'posts/new': 'newPost',
+    'users/:id': 'userShow',
     'groups' : 'indexGroup',
     'groups/new': 'newGroup',
     'groups/:id': 'showGroup',
@@ -18,6 +20,14 @@ OurLinks.Routers.Router = Backbone.Router.extend({
     OurLinks.groups.fetch();
     var rootView = new OurLinks.Views.Root();
     this._swapView(rootView)
+  },
+
+  // User routes
+  // -------------------------------------------
+  userShow: function (id) {
+    var user = this.users.getOrFetch(id);
+    var view = new OurLinks.Views.UserShow({model: user});
+    this._swapView(view);
   },
 
 
@@ -44,12 +54,6 @@ OurLinks.Routers.Router = Backbone.Router.extend({
     var view = new OurLinks.Views.GroupIndex({collection: this.groups});
     this._swapView(view);
   },
-
-  // newGroup: function () {
-  //   var group = new OurLinks.Models.Group();
-  //   var view = new OurLinks.Views.GroupForm({model: group})
-  //   this._swapView(view);
-  // },
 
   showGroup: function (id) {
     var group = this.groups.getOrFetch(id);

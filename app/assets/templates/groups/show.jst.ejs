@@ -1,4 +1,13 @@
-<%=group.escape('title')%><br>
-<%=group.escape('description')%>
+<h3><%=group.escape('title')%></h3><br>
 
+<h4><%=group.escape('description')%></h4>
+
+<h4>Members</h4>
+<ul>
+  <%group.members().each(function(member) { %>
+  <li><%=member.escape('fname')%></li>
+<%}) %>
+</ul>
+
+<button class="delete">Delete Group</button>
 <a href="#">Home</a>

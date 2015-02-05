@@ -6,13 +6,7 @@ OurLinks.Views.GroupIndexItem = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render)
   },
 
-  events: {
-    'click .delete': 'deleteGroup'
-  },
 
-  deleteGroup: function () {
-    this.model.destroy();
-  },
 
   render: function () {
     var content = this.template({group: this.model});

@@ -22,6 +22,8 @@ OurLinks.Views.GroupForm = Backbone.View.extend({
       success: function () {
         OurLinks.groups.add(group);
         Backbone.history.navigate('', {trigger: true})
+        that.open = false;
+        that.render();
       }
     })
   },

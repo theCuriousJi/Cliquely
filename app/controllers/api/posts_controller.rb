@@ -1,4 +1,6 @@
 class Api::PostsController < ApplicationController
+  before_action :redirect_if_not_logged_in
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id

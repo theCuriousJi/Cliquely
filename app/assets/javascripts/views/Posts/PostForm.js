@@ -19,17 +19,13 @@ OurLinks.Views.PostForm = Backbone.View.extend({
     console.log(data);
     post.save( {}, {
       success: function () {
-        OurLinks.posts.add(post);
+        OurLinks.posts.add(post);;
         Backbone.history.navigate('', {trigger: true})
+        that.open = false;
+        that.render();
       }
     })
   },
-
-  // openForm: function (event) {
-  //   event.preventDefault();
-  //   this.open = true;
-  //   this.render();
-  // },
 
   closeForm: function (event) {
     event.preventDefault();
