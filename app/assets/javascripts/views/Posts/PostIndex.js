@@ -11,6 +11,8 @@ OurLinks.Views.PostIndex = Backbone.CompositeView.extend({
     })
   },
 
+  // add groupIndex view to page
+  // and inside view, iterate over groups
   addPost: function (post) {
     var view = new OurLinks.Views.PostIndexItem({model: post})
     this.addSubview('#feed', view);
@@ -21,7 +23,6 @@ OurLinks.Views.PostIndex = Backbone.CompositeView.extend({
     _(this.subviews()).each(function (subviews, selector) {
       _(subviews).each(function (subview) {
         if(model === subview.model){
-          debugger;
           that.removeSubview(selector, subview);
 
         }

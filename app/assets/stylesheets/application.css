@@ -17,7 +17,7 @@
 html{
   font-family: 'ff-angie-web-pro', 'freight-sans-pro', Verdana, Geneva, sans-serif;
   background-color: #65d165;
-  /*background-image:  #65d165 10%,#57D39C 80%)*/
+  /*background-image:  url("space-wallpaper-1920x1080-for-desktop-hd-wallpapers-aduphotocom-abstract-landscape-images-1920x1080-wallpaper.jpg");*/
 }
 
 .logged-in{
@@ -27,6 +27,7 @@ html{
 .index-item{
   border: 1px solid #dfd7c9;
   border-radius: 5px;
+  background-color: #9966FF;
   overflow: auto
 
 }
@@ -36,11 +37,53 @@ html{
   }
 
 
+
+button{
+  background-color: #b4a995;
+}
+
+/*Forms
+____________________________________________*/
+.backdrop-form {
+background-color: black;
+position: fixed;
+left: 0;
+right: 0;
+bottom: 0;
+top: 0;
+z-index: 252;
+opacity: 0.5;
+}
+
+.modal-content {
+position: absolute;
+width: 400px;
+height: 500px;
+background-color: white;
+margin-left: 50%;
+transform: translateX(-50%);
+padding: 20px;
+border-radius: 10px;
+z-index: 300
+}
+
+
 .post-form{
   color: #b4a995;
   border: 1px solid #dfd7c9;
   border-radius: 5px;
   background-color: #f8f5f0;
   padding: 0.55em 0.9em;
+}
 
+#close-box{
+  float: right;
+  font-weight: 700px;
+  border: thin solid black;
+  padding: 3px;
+}
+
+#close-box:hover{
+  cursor: pointer;
+  background-color: #65d165;
 }
