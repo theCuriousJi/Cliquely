@@ -14,19 +14,21 @@ OurLinks.Models.Group = Backbone.Model.extend({
       delete response.members
     }
 
-    // if(response.membership) {
-    //   this.membership().set(response.membership, {parse: true});
-    //   delete response.membership
-    // }
+    if(response.membership) {
+      this.membership().set({ id: response.membership });
+      delete response.membership
+    }
+    this.membership().set({ group_id: response.id });
+
     return response;
   },
 
-  // membership: function () {
-  //   if(!this._membership) {
-  //     this._membership = new OurLinks.Models.Membership();
-  //   }
-  //   return this._membership;
-  // }
+  membership: function () {
+    if(!this._membership) {
+      this._membership = new OurLinks.Models.Membership();
+    }
+    return this._membership;
+  }
 })
 
 

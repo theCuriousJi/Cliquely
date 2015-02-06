@@ -1,6 +1,6 @@
 class Api::GroupMembershipsController < ApplicationController
   def create
-    @group_membership = GroupMembership.new(group_membership_params)
+    @group_membership = current_user.memberships.new(group_membership_params)
 
     if @group_membership.save
       render json: @group_membership
@@ -17,12 +17,11 @@ class Api::GroupMembershipsController < ApplicationController
 
   def destroy
     @group_membership = GroupMembership.find(params[:id])
-    @group_membership.destroy
-
-    render json: 'deleted'
+    @group_membership.destroy!
+    render json: @group_membership
   end
 
   def group_membership_params
-    params.require(:group_membership).permit(:group_id, :user_id)
+    params.require(:group_membership).permit(:group_id)
   end
 end

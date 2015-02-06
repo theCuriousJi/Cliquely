@@ -5,8 +5,9 @@ class Api::GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-      @group_membership = GroupMembership.new({user_id: current_user.id, group_id: @group.id})
-      @group_membership.save
+      # @group_membership = GroupMembership.new({user_id: current_user.id, group_id: @group.id})
+      @group_membership = current_user.memberships.new({group_id: @group.id })
+      @group_membership.save!
       render json: @group
     else
       render json: @post.errors.full_messages, status: :unprocessable_entity

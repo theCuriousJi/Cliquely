@@ -8,19 +8,12 @@
 </head>
 
 <body>
-  <%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
-
-  <% if current_user  %>
-  <h5 class="logged-in">Logged in as <%=current_user.fname %></h5>
-    <%= button_to "Sign Out", session_url, method: :delete %>
-    <%else%>
-    <a href="<%=new_session_url%>">Sign In </a>
-    <a href="<%=new_user_url%>">Sign Up </a>
-  <%end%>
-
+<%= render partial: 'layouts/header' %>
 
 <%= yield %>
 
 </body>
+<% if current_user %>
 <script>OurLinks.currentUserId = <%= current_user.id %></script>
+<%end%>
 </html>
