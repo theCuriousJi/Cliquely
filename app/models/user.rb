@@ -5,9 +5,16 @@ class User < ActiveRecord::Base
   validates :fname, :lname, :email, :password_digest, :session_token, presence: true
   validates :email, :session_token, uniqueness: true
 
-  has_many :group_memberships
+  has_many(
+  :memberships,
+  class_name: :GroupMembership,
+  foreign_key: :user_id,
+  primary_key: :id,
+  dependent: :destroy
+  )
 
-  has_many :groups, through: :group_memberships, source: :group
+
+  has_many :groups, through: :memberships, source: :group
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
@@ -28,6 +35,12 @@ class User < ActiveRecord::Base
     self.session_token = SecureRandom::urlsafe_base64
     self.save!
     self.session_token
+  end
+
+  def is_member_of?(group)
+    member = group.memberships.where(user_id: self.id)
+    puts member
+    member.empty? ? false : true
   end
 
   protected

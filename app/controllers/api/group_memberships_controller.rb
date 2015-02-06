@@ -1,4 +1,4 @@
-class GroupMembershipsController < ApplicationController
+class Api::GroupMembershipsController < ApplicationController
   def create
     @group_membership = GroupMembership.new(group_membership_params)
 
@@ -17,6 +17,8 @@ class GroupMembershipsController < ApplicationController
 
   def destroy
     @group_membership = GroupMembership.find(params[:id])
+    @group_membership.destroy
+
     render json: 'deleted'
   end
 

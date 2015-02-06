@@ -14,14 +14,27 @@
  *= require_self
  */
 
- @import "bootstrap";
  @import "bootstrap-sprockets";
+ @import "bootstrap";
 
-
-html{
+body{
   font-family: 'ff-angie-web-pro', 'freight-sans-pro', Verdana, Geneva, sans-serif;
   background-color: #65d165;
   /*background-image:  url("space-wallpaper-1920x1080-for-desktop-hd-wallpapers-aduphotocom-abstract-landscape-images-1920x1080-wallpaper.jpg");*/
+}
+
+.nav-bar > a{
+  padding-left: 40px;
+  float: right;
+  font-weight: bold
+}
+
+.nav-bar{
+  margin-right: 15px
+}
+
+.container{
+  margin: 0
 }
 
 .logged-in{
@@ -33,6 +46,13 @@ html{
   border-radius: 5px;
   background-color: #9966FF;
   overflow: auto
+
+}
+
+#my-groups{
+  background-color: #9966FF;
+  border: 1px solid #dfd7c9;
+  border-radius: 5px;
 
 }
 
@@ -52,9 +72,6 @@ button{
 
 /*Feed
 ____________________________________________*/
-/*#feed{
-
-}*/
 
 
 /*Forms

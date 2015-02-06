@@ -15,12 +15,13 @@ class Api::GroupsController < ApplicationController
 
 
   def index
-    @groups = Group.all
-    render json: @groups
+    @groups = Group.includes(:memberships).all
+    # render json: @groups
+    render :index
   end
 
   def show
-    @group = Group.find(params[:id])
+    @group = Group.includes(:members).find(params[:id])
     # , includes(:members)
     render :show
     # if @board.is_member?(current_user)
