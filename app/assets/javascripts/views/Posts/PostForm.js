@@ -8,7 +8,12 @@ OurLinks.Views.PostForm = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.open = true
+    this.open = true;
+    // this.listenTo()
+  },
+
+  createPostGroupLink: function (groupID) {
+
   },
 
   create: function (event) {
@@ -16,10 +21,11 @@ OurLinks.Views.PostForm = Backbone.View.extend({
     var data = this.$el.serializeJSON()
     var post = new OurLinks.Models.Post(data);
     var that = this;
+    debugger
     console.log(data);
     post.save( {}, {
       success: function () {
-        OurLinks.posts.add(post);;
+        OurLinks.posts.add(post);
         Backbone.history.navigate('', {trigger: true})
         that.open = false;
         that.render();

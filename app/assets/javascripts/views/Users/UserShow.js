@@ -3,10 +3,11 @@ OurLinks.Views.UserShow = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
-    this.groups = this.model.groups();
+    this.groups = this.model.groups()
     this.listenTo(this.groups, 'sync', this.render);
     this.listenTo(this.groups, 'add', this.addGroup);
-    this.listenTo(this.groups, 'remove', this.removeGroup);
+    // this.listenTo(this.groups, 'remove', this.removeGroup);
+    debugger;
     this.groups.each(function (group) {
       this.addGroup(group)
     }.bind(this))

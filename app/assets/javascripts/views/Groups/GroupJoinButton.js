@@ -48,7 +48,6 @@ OurLinks.Views.GroupJoinButton = Backbone.View.extend({
           that.render();
         },
         error: function () {
-          console.log(arguments);
         }
       });
     }
@@ -58,7 +57,6 @@ OurLinks.Views.GroupJoinButton = Backbone.View.extend({
 
   render: function () {
     // disable button during transition
-    console.log('rendering');
     var content = this.template({
       btnText: this.buttonText()
     });

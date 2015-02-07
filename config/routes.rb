@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :posts
     resources :groups
     resources :group_memberships
+    resources :link_memberships
   end
 
 end

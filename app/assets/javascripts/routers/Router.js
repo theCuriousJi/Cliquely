@@ -18,6 +18,7 @@ OurLinks.Routers.Router = Backbone.Router.extend({
   root: function () {
     OurLinks.posts.fetch();
     OurLinks.groups.fetch();
+    OurLinks.currentUser = this.users.getOrFetch(OurLinks.currentUserId);
     var rootView = new OurLinks.Views.Root();
     this._swapView(rootView)
   },
@@ -26,6 +27,7 @@ OurLinks.Routers.Router = Backbone.Router.extend({
   // -------------------------------------------
   userShow: function (id) {
     var user = this.users.getOrFetch(id);
+    // this.groups.fetch();
     var view = new OurLinks.Views.UserShow({model: user});
     this._swapView(view);
   },
