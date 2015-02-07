@@ -4,7 +4,8 @@ OurLinks.Views.PostForm = Backbone.View.extend({
   tagName: 'form',
   events: {
     'click #submit-post': "create",
-    'click .backdrop-form': "closeForm"
+    'click .backdrop-form': "closeForm",
+    'click #delete-box': "closeForm"
   },
 
   initialize: function () {
@@ -22,7 +23,6 @@ OurLinks.Views.PostForm = Backbone.View.extend({
     var post = new OurLinks.Models.Post(data);
     var that = this;
     debugger
-    console.log(data);
     post.save( {}, {
       success: function () {
         OurLinks.posts.add(post);
@@ -35,7 +35,6 @@ OurLinks.Views.PostForm = Backbone.View.extend({
 
   closeForm: function (event) {
     event.preventDefault();
-    console.log(event);
     this.open = false;
     this.render();
   },

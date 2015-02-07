@@ -3,9 +3,15 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
 
-  has_many :link_memberships
-
-  # inverse_of: :post / part of options hash
+  has_many :link_memberships,
+  dependent: :destroy
+  # has_many(:link_memberships,
+  # class_name: :LinkMembership,
+  # foreign_key: :post_id,
+  # primary_key: :id,
+  # inverse_of: :post
+  # )
+  
 
   has_many :groups, through: :link_memberships, source: :group
 

@@ -64,9 +64,8 @@ ul{
   list-style-type: none
 }
 
-.delete{
-  /*margin-bottom: 15%*/
-  }
+
+
 
 
 
@@ -112,14 +111,20 @@ z-index: 300
   padding: 0.55em 0.9em;
 }
 
-#close-box{
-  float: right;
-  font-weight: 700px;
-  border: thin solid black;
-  padding: 3px;
-}
+// #close-box{
+//   float: right;
+//   font-weight: 700px;
+//   border: thin solid black;
+//   padding: 3px;
+// }
 
-#close-box:hover{
+#delete-box{
+  /*margin-bottom: 15%*/
+  float:right
+  }
+
+
+#delete-box:hover{
   cursor: pointer;
   background-color: #65d165;
 }

@@ -17,7 +17,15 @@ class Api::PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    render json: @posts
+    groups = "("+current_user.group_ids.join(", ")+ ")"
+    posts = Post.find_by_sql(<<-SQL)
+    SELECT p.id, title, url, description
+    FROM posts as p
+    JOIN
+    link_memberships as lm ON p.id = lm.post_id
+    WHERE lm.group_id IN #{groups}
+    SQL
+    render json: posts
   end
 
   def show
