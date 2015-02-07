@@ -19,6 +19,8 @@ OurLinks.Routers.Router = Backbone.Router.extend({
     OurLinks.posts.fetch();
     OurLinks.groups.fetch();
     OurLinks.currentUser = this.users.getOrFetch(OurLinks.currentUserId);
+    // How come on my root page, i dont need a listener to see if user.groups()
+    // has fetched yet?
     var rootView = new OurLinks.Views.Root();
     this._swapView(rootView)
   },

@@ -13,9 +13,9 @@ OurLinks.Views.PostForm = Backbone.View.extend({
     // this.listenTo()
   },
 
-  createPostGroupLink: function (groupID) {
+createPostGroupLink: function (groupID) {
 
-  },
+},
 
   create: function (event) {
     event.preventDefault();

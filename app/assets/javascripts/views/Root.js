@@ -2,6 +2,8 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
   template: JST['root'],
 
   initialize: function () {
+    this.groups = OurLinks.currentUser.groups()
+    // this.listenTo(this.groups, 'sync', this.addGroupsView());
     this.addPostsView();
     this.addGroupsView();
   },
@@ -32,8 +34,8 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
   },
 
   addGroupsView: function () {
-    var groupsIndexView = new OurLinks.Views.GroupIndex({collection: OurLinks.groups})
-    this.addSubview('ul.groups', groupsIndexView);
+    var groupsFeedView = new OurLinks.Views.GroupFeed({collection: this.groups})
+    this.addSubview('ul.groups', groupsFeedView);
   },
 
   render: function () {

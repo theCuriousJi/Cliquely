@@ -1,5 +1,5 @@
-OurLinks.Views.GroupIndex = Backbone.CompositeView.extend({
-  template: JST['groups/index'],
+OurLinks.Views.GroupFeed = Backbone.CompositeView.extend({
+  template: JST['groups/feed'],
 
   initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
@@ -12,19 +12,8 @@ OurLinks.Views.GroupIndex = Backbone.CompositeView.extend({
   },
 
   addGroup: function (group) {
-    var view = new OurLinks.Views.GroupIndexItem({model: group, joinButton: true})
+    var view = new OurLinks.Views.GroupIndexItem({model: group, joinButton: false})
     this.addSubview('#my-groups', view);
-  },
-
-  removeGroup: function (model) {
-    var that = this;
-    _(this.subviews()).each(function (subviews, selector) {
-      _(subviews).each(function (subview) {
-        if(model === subview.model){
-          that.removeSubview(selector, subview);
-        }
-      });
-    });
   },
 
   render: function () {

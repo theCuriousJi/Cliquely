@@ -2,10 +2,10 @@ OurLinks.Views.GroupIndexItem = Backbone.CompositeView.extend({
   template: JST['groups/index-item'],
   tagName: 'li',
 
-  initialize: function () {
+  initialize: function (options) {
     this.listenTo(this.model, 'sync', this.render);
-    this.addButton()
-
+    if(options.joinButton){
+      this.addButton() }
   },
 
   addButton: function () {
