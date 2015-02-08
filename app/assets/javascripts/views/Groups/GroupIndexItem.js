@@ -5,16 +5,25 @@ OurLinks.Views.GroupIndexItem = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.listenTo(this.model, 'sync', this.render);
     if(options.joinButton){
-      this.addButton() }
+      this.addJoinButton() };
+    if(options.filterButton){
+      this.addFilterButton() }
   },
 
-  addButton: function () {
+  addJoinButton: function () {
     // var memberStatus = (this.model.get("membership") ? 'member' : 'new');
     // var membership = new OurLinks.Models.Membership({
     //   group_id: this.model.id
     // })
     var view = new OurLinks.Views.GroupJoinButton({
       model: this.model.membership()
+    });
+    this.addSubview('.toggle', view )
+  },
+
+  addFilterButton: function () {
+    var view = new OurLinks.Views.GroupFilterButton({
+      model: this.model
     });
     this.addSubview('.toggle', view )
   },

@@ -12,8 +12,10 @@ OurLinks.Views.GroupFeed = Backbone.CompositeView.extend({
   },
 
   addGroup: function (group) {
-    var view = new OurLinks.Views.GroupIndexItem({model: group, joinButton: false})
+    var view = new OurLinks.Views.GroupIndexItem({model: group, filterButton: true })
+    OurLinks.util.addGroupId(group.id);
     this.addSubview('#my-groups', view);
+
   },
 
   render: function () {

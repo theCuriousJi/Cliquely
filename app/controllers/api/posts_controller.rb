@@ -19,7 +19,7 @@ class Api::PostsController < ApplicationController
     @posts = Post.all
     groups = "("+current_user.group_ids.join(", ")+ ")"
     posts = Post.find_by_sql(<<-SQL)
-    SELECT p.id, title, url, description
+    SELECT p.id, title, url, description, lm.group_id
     FROM posts as p
     JOIN
     link_memberships as lm ON p.id = lm.post_id

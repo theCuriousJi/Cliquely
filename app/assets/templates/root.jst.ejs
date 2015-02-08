@@ -1,21 +1,29 @@
-<h2>Our Links</h2>
+
 <div id="form"></div>
 
-<div class="nav-bar">
-  <a class="profile-link" href="#/users/<%=OurLinks.currentUserId%>">Profile</a>
-  <a class="new-post" href="#">New Post</a>
-  <a class="new-group" href="#">Create a new Group</a>
-  <a href="#/groups">All Groups</a>
-</div>
-
 <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Our Links</h2>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="nav-bar">
+        <a class="profile-link" href="#/users/<%=OurLinks.currentUserId%>">Profile</a>
+        <a class="new-post" href="#">New Post</a>
+        <a class="new-group" href="#">Create a new Group</a>
+        <a href="#/groups">All Groups</a>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-3">
       <ul class="groups "> </ul>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-8 col-md-offset-1">
       <ul class="posts"> </ul>
     </div>
 

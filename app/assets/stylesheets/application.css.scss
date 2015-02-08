@@ -23,7 +23,7 @@
 
 body{
   font-family: 'ff-angie-web-pro', 'freight-sans-pro', Verdana, Geneva, sans-serif;
-  background-color: #65d165;
+  background-color: whitesmoke;
   /*background-image:  url("space-wallpaper-1920x1080-for-desktop-hd-wallpapers-aduphotocom-abstract-landscape-images-1920x1080-wallpaper.jpg");*/
 }
 
@@ -46,9 +46,9 @@ body{
 }
 
 .index-item{
-  border: 1px solid #dfd7c9;
-  border-radius: 5px;
-  background-color: #9966FF;
+  border-bottom: 3px solid black;
+  // border-radius: 5px;
+  background-color: whitesmoke;
   overflow: auto
 
 }
@@ -118,8 +118,12 @@ z-index: 300
 //   padding: 3px;
 // }
 
+.delete{
+  margin-bottom: 3%;
+
+}
+
 #delete-box{
-  /*margin-bottom: 15%*/
   float:right
   }
 
