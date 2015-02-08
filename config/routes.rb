@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :groups
     resources :group_memberships
     resources :link_memberships
+    resources :tags
   end
 
 end
