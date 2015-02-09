@@ -1,6 +1,8 @@
 OurLinks.Models.Util = Backbone.Model.extend({
   defaults:  {
-    displayedGroupIds: []
+    displayedGroupIds: [],
+    displayedTagIds: []
+
   },
 
   addGroupId: function (integer) {
@@ -15,6 +17,23 @@ OurLinks.Models.Util = Backbone.Model.extend({
     groupIds.splice(index, 1);
     OurLinks.util.set({'displayedGroupIds': groupIds})
   },
+
+  addTagId: function (integer) {
+    var tagIds = _.clone(this.get('displayedTagIds'));
+    tagIds.push(integer);
+    OurLinks.util.set({'displayedTagIds': tagIds})
+  },
+
+  removeTagId: function (integer) {
+    var index = OurLinks.util.get('displayedTagIds').indexOf(integer);
+    var tagIds = _.clone(this.get('displayedTagIds'));
+    tagIds.splice(index, 1);
+    OurLinks.util.set({'displayedTagIds': tagIds})
+  },
+
+
+
+
 
 })
 

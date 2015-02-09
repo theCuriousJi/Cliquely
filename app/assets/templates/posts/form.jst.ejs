@@ -19,7 +19,7 @@
 <textarea class="post-form" name="post[description]" rows="8" cols="40"></textarea><br>
 
 <ul>
-<label >Which Groups do you want to post this to</label><br>
+<label >Who do you want to share this with</label><br>
 <% OurLinks.currentUser.groups().each(function(group) { %>
 
   <input type="checkbox" name="post[group_ids][]" value="<%=group.id%>"><%=group.escape('title')%>
@@ -28,10 +28,11 @@
 </ul>
 
 <ul>
-<label >Which Groups do you want to post this to</label><br>
-<% OurLinks.currentUser.groups().each(function(group) { %>
 
-  <input type="checkbox" name="post[group_ids][]" value="<%=group.id%>"><%=group.escape('title')%>
+<label >Tag it!</label><br>
+<% OurLinks.tags.each(function(tag) { %>
+
+  <input type="checkbox" name="post[tag_ids][]" value="<%=tag.id%>"><%=tag.escape('name')%>
 
 <% }) %>
 </ul>

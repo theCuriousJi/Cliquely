@@ -1,2 +1,0 @@
-class LinkMembershipsController < ApplicationController
-end

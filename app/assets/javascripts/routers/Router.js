@@ -17,6 +17,7 @@ OurLinks.Routers.Router = Backbone.Router.extend({
 
   root: function () {
     OurLinks.posts.fetch();
+    OurLinks.tags.fetch();
     // OurLinks.groups.fetch();
     OurLinks.currentUser = this.users.getOrFetch(OurLinks.currentUserId);
     // How come on my root page, i dont need a listener to see if user.groups()

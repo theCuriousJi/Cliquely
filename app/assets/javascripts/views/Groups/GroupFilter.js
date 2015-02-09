@@ -1,5 +1,5 @@
-OurLinks.Views.GroupFeed = Backbone.CompositeView.extend({
-  template: JST['groups/feed'],
+OurLinks.Views.GroupFilter = Backbone.CompositeView.extend({
+  template: JST['groups/filter'],
 
   initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);

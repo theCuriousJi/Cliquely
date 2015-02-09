@@ -22,7 +22,6 @@ createPostGroupLink: function (groupID) {
     var data = this.$el.serializeJSON()
     var post = new OurLinks.Models.Post(data);
     var that = this;
-    debugger
     post.save( {}, {
       success: function () {
         OurLinks.posts.add(post);

@@ -4,8 +4,10 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
   initialize: function () {
     // OurLinks.filters = {'group_id': []};
     OurLinks.util.set({'displayedGroupIds': []});
+    OurLinks.util.set({'displayedTagIds': []});
     // I populate the filters as the groups are added to the page
     this.groups = OurLinks.currentUser.groups()
+    this.tags = OurLinks.tags
     // this.listenTo(this.groups, 'sync', this.addGroupsView());
     this.filteredPosts = new OurLinks.Collections.Posts()
     this.addFilters();
@@ -35,6 +37,7 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
       var post = new OurLinks.Models.Post();
       var view = new OurLinks.Views.PostForm({model: post})
       this.addSubview('#form', view);
+
   },
 
   addPostsView: function () {
@@ -45,8 +48,11 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
 
 
   addFilters: function () {
-    var groupFeedView = new OurLinks.Views.GroupFeed({collection: this.groups})
-    this.addSubview('ul.groups', groupFeedView);
+    var groupFilterView = new OurLinks.Views.GroupFilter({collection: this.groups})
+    this.addSubview('ul.groups', groupFilterView);
+
+    var tagFilterView = new OurLinks.Views.TagFilter({collection: this.tags})
+    this.addSubview('ul.tags', tagFilterView);
   },
 
   render: function () {
