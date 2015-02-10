@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
   dependent: :destroy
   )
 
+  has_many :likes,
+  dependent: :destroy
+
+  has_many :liked_posts, through: :likes, source: :post
+
 
   has_many :groups, through: :memberships, source: :group
 
@@ -39,8 +44,12 @@ class User < ActiveRecord::Base
 
   def is_member_of?(group)
     member = group.memberships.where(user_id: self.id)
-    puts member
     member.empty? ? false : true
+  end
+
+  def likes?(post)
+    like = post.likes.where(user_id: self.id)
+    like.empty? ? false : true
   end
 
   protected

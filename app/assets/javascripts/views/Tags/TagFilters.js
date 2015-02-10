@@ -4,8 +4,9 @@ OurLinks.Views.TagFilter = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addTag);
+    var that = this;
     this.collection.each(function (tag) {
-      this.addTag(tag);
+      that.addTag(tag);
     })
   },
 

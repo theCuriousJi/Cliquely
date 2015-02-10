@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :group_memberships
     resources :link_memberships
     resources :tags
+    resources :likes
   end
 
 end

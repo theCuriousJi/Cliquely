@@ -16,6 +16,10 @@ class Post < ActiveRecord::Base
   dependent: :destroy
 
   has_many :tags, through: :taggings, source: :tag
+  has_many :likes,
+  dependent: :destroy
+
+  has_many :likers, through: :likes, source: :user
 
 
   has_many :groups, through: :link_memberships, source: :group

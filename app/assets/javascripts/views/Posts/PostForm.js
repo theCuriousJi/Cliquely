@@ -25,9 +25,7 @@ createPostGroupLink: function (groupID) {
     post.save( {}, {
       success: function () {
         OurLinks.posts.add(post);
-        Backbone.history.navigate('', {trigger: true})
-        that.open = false;
-        that.render();
+        that.closeForm(event);
       }
     })
   },
@@ -35,6 +33,7 @@ createPostGroupLink: function (groupID) {
   closeForm: function (event) {
     event.preventDefault();
     this.open = false;
+    this.model = new OurLinks.Models.Post();
     this.render();
   },
 

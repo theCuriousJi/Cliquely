@@ -5,7 +5,18 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      render json: @post
+      # groups = "("+current_user.group_ids.join(", ")+ ")"
+      # post = Post.find_by_sql(<<-SQL)
+      # SELECT p.id, title, url, description, p.created_at, lm.group_id, t.tag_id
+      # FROM posts as p
+      # JOIN
+      # link_memberships as lm ON p.id = lm.post_id
+      # JOIN
+      # taggings as t ON t.post_id = p.id
+      # WHERE p.id = #{@post.id}
+      # SQL
+      # @post = post
+      render :show
       # params[:post][:group_ids].each do |group_id|
       #   LinkMembership.create!({group_id: group_id, post_id: @post.id})
       # end
@@ -15,23 +26,45 @@ class Api::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
-    groups = "("+current_user.group_ids.join(", ")+ ")"
+    # @posts = Post.all
+    groups = "("+([0] + current_user.group_ids).join(", ")+ ")"
+    # groups = current_user.group_ids
+    #
+    #
+    # posts = Post.includes(:link_memberships)
+    #   .includes(:taggings)
+    #   .where('link_memberships.group_id IN (?)',  [1,2])
+    #   .from('posts')
+
     posts = Post.find_by_sql(<<-SQL)
-    SELECT p.id, title, url, description, lm.group_id, t.tag_id
+    SELECT p.id, title, url, description, p.created_at, lm.group_id, t.tag_id
     FROM posts as p
     JOIN
     link_memberships as lm ON p.id = lm.post_id
     JOIN
     taggings as t ON t.post_id = p.id
     WHERE lm.group_id IN #{groups}
+    ORDER BY p.created_at DESC
     SQL
-    render json: posts
+
+    @posts = posts
+    render :index
   end
 
   def show
+    # groups = "("+current_user.group_ids.join(", ")+ ")"\
     @post = Post.find(params[:id])
-    render json: @post
+    # @post = Post.find_by_sql(<<-SQL)
+    # SELECT p.id, title, url, description, p.created_at, lm.group_id, t.tag_id
+    # FROM posts as p
+    # JOIN
+    # link_memberships as lm ON p.id = lm.post_id
+    # JOIN
+    # taggings as t ON t.post_id = p.id
+    # WHERE lm.group_id IN #{groups} AND p.id = #{params[:id]}
+    # SQL
+    # render json: @post
+    render :show
   end
 
   def destroy

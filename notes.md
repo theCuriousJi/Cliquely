@@ -19,10 +19,35 @@ and resets the filtered collection with the results of the filter
 To Dos:
 
 1) makes sure images appear and delete when links are posted.
-2) check remove post on the filtered feedr
+2) check remove post on the filtered feed
+3) add comments
+
 
 
 Questions:
 1) On my GroupFilter on the home page, I have a listener on add events, after
 which I add subviews, and one on a sync, after which I render.  while the
-collection fetches, are add events being triggered. 
+collection fetches, are add events being triggered.
+
+
+
+Pickup tomorrow
+
+Working on Like button
+  -currently have it so that a like button is added as the post is added
+  and the user holds information about each like
+
+
+bugs
+On all groups page, if you are a member of a group, you cant leave and rejoin the group on the same page
+
+
+1)add filters prop to collections
+collection
+filters: {groupId: [],}
+
+2) fetchFiltered method in collection
+  -call this.fetch({data: this.filters})
+
+inside controller, params will include filters
+based on filters, build up a bunch of where conditions

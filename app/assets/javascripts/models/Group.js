@@ -15,7 +15,8 @@ OurLinks.Models.Group = Backbone.Model.extend({
     }
 
     if(response.membership) {
-      this.membership().set({ id: response.membership });
+
+      this.membership().set({ id: response.membership});
       delete response.membership
     }
     this.membership().set({ group_id: response.id });
@@ -25,7 +26,7 @@ OurLinks.Models.Group = Backbone.Model.extend({
 
   membership: function () {
     if(!this._membership) {
-      this._membership = new OurLinks.Models.Membership();
+      this._membership = new OurLinks.Models.Membership({ group_id: this.id });
     }
     return this._membership;
   }
@@ -35,4 +36,4 @@ OurLinks.Models.Group = Backbone.Model.extend({
 // membership
 //
 //
-// membership.isNew chekcs if member or not
+// membership.isNew checks if member or not

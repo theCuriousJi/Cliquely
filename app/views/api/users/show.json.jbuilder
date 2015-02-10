@@ -6,6 +6,10 @@ json.groups  @user.groups.includes(:memberships) do |group|
   json.membership group.memberships.where("user_id = ?", @user.id).first.id
 end
 
+json.likes  @user.likes do |like|
+  json.extract! like, :id, :post_id
+end
+
 # json.memberships @user.memberships.includes(:group) do |membership|
 #   json.extract! membership, :id
 #

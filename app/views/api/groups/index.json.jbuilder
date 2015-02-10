@@ -16,7 +16,7 @@ json.array! @groups do |group|
  end
 end
 
-
+# N+1 queries!
 
 #
 # I have groups, users and group memberships.

@@ -2,10 +2,13 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
   template: JST['posts/filtered-posts'],
 
   initialize: function () {
-    this.listenTo(this.collection, 'reset', this.resetFeed);
+
     // this.listenTo(this.collection, 'sync', this.render);
-    this.listenTo(this.collection, 'remove', this.removePost);
-    this.listenTo(this.collection, 'add', this.render);
+    this.listenTo(OurLinks.posts, 'remove', this.removePost);
+    this.listenTo(OurLinks.posts, 'add', this.filterPosts);
+    this.listenTo(OurLinks.posts, 'add', this.filterPosts);
+    // this.listenTo(OurLinks.posts, 'add', this.render);
+    this.listenTo(this.collection, 'reset', this.resetFeed);
     this.listenTo(OurLinks.posts, 'sync', this.filterPosts);
     this.listenTo(OurLinks.util, 'change:displayedGroupIds', this.filterPosts);
     this.listenTo(OurLinks.util, 'change:displayedTagIds', this.filterPosts);
@@ -14,7 +17,7 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
   resetFeed: function () {
     _(this.subviews()).each(function (subviews) {
       _(subviews).each(function (subview) {
-        subview.remove()
+        subview.remove();
       })
     })
 
@@ -25,25 +28,39 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
     })
   },
 
-  // removePost: function (model) {
-  //   var that = this;
-  //   _(this.subviews()).each(function (subviews, selector) {
-  //     _(subviews).each(function (subview) {
-  //       if(model === subview.model){
-  //         that.removeSubview(selector, subview);
-  //
-  //       }
-  //     });
-  //   });
-  // },
+  removePost: function (model) {
+    var mySelector;
+    var mySubview;
 
+    var that = this;
+    _(this.subviews()).each(function (subviews, selector) {
+      _(subviews).each(function (subview) {
+        if(model === subview.model){
+          mySelector = selector;
+          mySubview = subview;
+        }
+      });
+    });
+
+    that.removeSubview(mySelector, mySubview);
+  },
+
+  intersectionCheck: function (array1, array2) {
+    // array1
+  },
 
   filterPosts: function () {
       results = OurLinks.posts.filter(function (post) {
-        return (OurLinks.util.get('displayedGroupIds').indexOf(post.get('group_id')) !== -1 && OurLinks.util.get('displayedTagIds').indexOf(post.get('tag_id')) !== -1);
+        // debugger
+        return (_.intersection(OurLinks.util.get('displayedGroupIds'), post.get('group_ids')).length > 0 &&
+        _.intersection(OurLinks.util.get('displayedTagIds'), post.get('tag_ids')).length > 0)
     })
+    // debugger
 
-  this.collection.reset(results);
+    // this.collection.fetch({
+    //   data: { group_ids: [1, 2, 3] }
+    // });
+    this.collection.reset(results);
   },
 
   addPost: function (post) {
@@ -57,7 +74,4 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
     this.attachSubviews();
     return this;
   }
-
-
-
 })

@@ -8,6 +8,14 @@ OurLinks.Models.User = Backbone.Model.extend({
     return this._groups
   },
 
+  likes: function () {
+    if(!this._likes) {
+      this._likes = []
+    }
+    return this._likes
+  },
+
+
   // parse: function (response) {
   //   groups = []
   //   if(response.memberships) {
@@ -28,9 +36,17 @@ OurLinks.Models.User = Backbone.Model.extend({
 
 
   parse: function (response) {
+    var that = this;
     if(response.groups) {
       this.groups().set(response.groups, {parse: true});
       delete response.groups
+    }
+
+    if(response.likes) {
+      _(response.likes).each(function (like) {
+        that.likes().push(like)
+      });
+      delete response.likes
     }
     return response;
   }

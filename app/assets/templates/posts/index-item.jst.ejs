@@ -2,5 +2,6 @@
   <a href="posts/<%=post.id%>"><%= post.escape("title") %></a> <br>
   <label >URL</label>
   <a href="<%= post.escape("url")%>"><%= post.escape("url") %></a> <br><br>
-
+  <%= post.escape("created_at") %><br><br>
+  <div id="like-button"></div>
   <button class="delete">Delete Post</button>

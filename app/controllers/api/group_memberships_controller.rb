@@ -1,11 +1,10 @@
 class Api::GroupMembershipsController < ApplicationController
   def create
     @group_membership = current_user.memberships.new(group_membership_params)
-
     if @group_membership.save
       render json: @group_membership
     else
-      render json: 'error'
+      render json: 'error', status: 422
     end
   end
 
