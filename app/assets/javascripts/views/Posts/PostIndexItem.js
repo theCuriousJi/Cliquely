@@ -3,12 +3,30 @@ OurLinks.Views.PostIndexItem = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
-    this.addLikeButton()
+    this.addLikeButton();
+    // this.addComments();
+    this.addCommentForm();
     this.$el.addClass('index-item');
+    var that = this
+    this.model.comments().each(function (comment) {
+      that.addComment(comment)
+    })
+    this.listenTo(this.model.comments(), 'add', this.addComment)
   },
+
 
   events: {
     'click .delete': 'deletePost'
+  },
+
+  addCommentForm: function () {
+    var view = new OurLinks.Views.CommentForm({model: this.model, collection: this.model.comments()});
+    this.addSubview('#comment-form', view)
+  },
+
+  addComment: function (comment) {
+      var view = new OurLinks.Views.CommentShow({model: comment })
+      this.addSubview('.comments', view)
   },
 
   deletePost: function () {

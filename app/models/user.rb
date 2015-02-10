@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   has_many :likes,
   dependent: :destroy
 
+  has_many :comments
+
   has_many :liked_posts, through: :likes, source: :post
 
 

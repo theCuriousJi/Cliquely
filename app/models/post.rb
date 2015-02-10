@@ -21,6 +21,8 @@ class Post < ActiveRecord::Base
 
   has_many :likers, through: :likes, source: :user
 
+  has_many :comments
+
 
   has_many :groups, through: :link_memberships, source: :group
 
