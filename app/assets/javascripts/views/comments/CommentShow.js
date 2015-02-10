@@ -3,7 +3,7 @@ OurLinks.Views.CommentShow = Backbone.View.extend({
   tagName: 'li',
 
   render: function () {
-    var content = this.template({post: this.model});
+    var content = this.template({comment: this.model});
     this.$el.html(content);
     return this;
   }

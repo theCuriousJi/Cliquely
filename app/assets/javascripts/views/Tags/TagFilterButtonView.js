@@ -7,7 +7,7 @@ OurLinks.Views.TagFilterButton = Backbone.View.extend({
   },
 
   events: {
-    'click .filter-toggle': 'showOrHide'
+    'click .toggle': 'showOrHide'
   },
 
   currentlyHidden: function () {
@@ -28,22 +28,26 @@ OurLinks.Views.TagFilterButton = Backbone.View.extend({
 
   render: function () {
     var content = this.template({
-      tag: this.model,
-      btnText: this.buttonText()
+      tag: this.model
     });
     this.$el.html(content);
+    if(this.hidden === true) {
+      this.$('.toggle').removeClass('clicked').addClass('not-clicked')
+    } else {
+      this.$('.toggle').removeClass('not-clicked').addClass('clicked')
+    }
     return this;
   },
 
-  buttonText: function(){
-    var btnText;
-    if(!this.hidden) {
-      btnText = "Hide";
-    } else {
-      btnText = "Show";
-    }
-    return btnText;
-  },
+  // buttonText: function(){
+  //   var btnText;
+  //   if(!this.hidden) {
+  //     btnText = "Hide";
+  //   } else {
+  //     btnText = "Show";
+  //   }
+  //   return btnText;
+  // },
   // setButtonTextAndDisable: function(text, disable){
   //   var $button = this.$('.join-toggle');
   //   $button.text(text);

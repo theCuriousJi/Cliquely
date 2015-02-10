@@ -12,7 +12,7 @@ OurLinks.Views.GroupFilter = Backbone.CompositeView.extend({
   },
 
   addGroup: function (group) {
-    var view = new OurLinks.Views.GroupIndexItem({model: group, filterButton: true })
+    var view = new OurLinks.Views.GroupFilterButton({model: group, filterButton: true })
     OurLinks.util.addGroupId(group.id);
     this.addSubview('#my-groups', view);
 

@@ -13,17 +13,22 @@
  *= require_tree .
  *= require_self
  */
-
- @import "bootstrap-sprockets";
+ @import "bootswatch/superhero/variables";
+ // @import "bootstrap-sprockets";
  @import "bootstrap";
+ body { padding-top: 40px; }
+ @import "bootswatch/superhero/bootswatch";
+ // @import "base";
 
 .navbar{
    position: relative
  }
 
+
+
 body{
   font-family: 'ff-angie-web-pro', 'freight-sans-pro', Verdana, Geneva, sans-serif;
-  background-color: whitesmoke;
+  background-color: #2b3e50;
   /*background-image:  url("space-wallpaper-1920x1080-for-desktop-hd-wallpapers-aduphotocom-abstract-landscape-images-1920x1080-wallpaper.jpg");*/
 }
 
@@ -48,7 +53,6 @@ body{
 .index-item{
   border-bottom: 3px solid black;
   // border-radius: 5px;
-  background-color: whitesmoke;
   overflow: auto
 
 }
@@ -64,17 +68,32 @@ ul{
   list-style-type: none
 }
 
-
-
-
-
-
-button{
-  background-color: #b4a995;
-}
-
 /*Feed
 ____________________________________________*/
+
+.comments{
+  font-size: 10px
+}
+
+
+.panel-body{
+ padding: 2px;
+ height: 50px
+}
+
+.thumbnail{
+ padding: 2px;
+ height: 50px
+}
+
+.resize{
+ width: 30px;
+ height: auto
+}
+
+#like-button {
+  float: left
+}
 
 
 /*Forms
@@ -94,7 +113,7 @@ opacity: 0.5;
 position: absolute;
 width: 400px;
 height: 500px;
-background-color: white;
+// background-color: white;
 margin-left: 50%;
 transform: translateX(-50%);
 padding: 20px;
@@ -125,7 +144,27 @@ z-index: 300
 
 #delete-box{
   float:right
-  }
+}
+
+.not-clicked{
+  background-color: black;
+  border-radius: 50%;
+  border: thin solid red;
+  height: 75px;
+  width: 75px;
+  float: left
+}
+
+.clicked{
+  background-color: #2b3e50;
+  border-radius: 50%;
+  border: thin solid red;
+  height: 75px;
+  width: 75px;
+  float: left
+}
+
+
 
 
 #delete-box:hover{
