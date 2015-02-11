@@ -6,7 +6,8 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
     OurLinks.util.set({'displayedGroupIds': []});
     OurLinks.util.set({'displayedTagIds': []});
     // I populate the filters as the groups are added to the page
-    this.groups = OurLinks.currentUser.groups()
+    this.groups = OurLinks.currentUser.groups();
+    this.groups.fetch();
     this.tags = OurLinks.tags;
     // this.listenTo(this.groups, 'sync', this.addGroupsView());
     this.filteredPosts = new OurLinks.Collections.Posts();

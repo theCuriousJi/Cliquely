@@ -13,11 +13,11 @@
  *= require_tree .
  *= require_self
  */
- @import "bootswatch/superhero/variables";
+ @import "bootswatch/sandstone/variables";
  // @import "bootstrap-sprockets";
  @import "bootstrap";
- body { padding-top: 40px; }
- @import "bootswatch/superhero/bootswatch";
+ body { }
+ @import "bootswatch/sandstone/bootswatch";
  // @import "base";
 
 .navbar{
@@ -28,7 +28,7 @@
 
 body{
   font-family: 'ff-angie-web-pro', 'freight-sans-pro', Verdana, Geneva, sans-serif;
-  background-color: #2b3e50;
+  // background-color: #2b3e50;
   /*background-image:  url("space-wallpaper-1920x1080-for-desktop-hd-wallpapers-aduphotocom-abstract-landscape-images-1920x1080-wallpaper.jpg");*/
 }
 
@@ -146,23 +146,46 @@ z-index: 300
   float:right
 }
 
+.toggle{
+  font-size: 11px;
+
+}
 .not-clicked{
-  background-color: black;
-  border-radius: 50%;
-  border: thin solid red;
-  height: 75px;
+  // background-color: #2b3e50;
+  // text-shadow: -1px 1px #346392;
+  background-image: linear-gradient(top, #6496c8, #346392);
+  // border-radius: 50%;
+  border: thin solid black;
+  box-shadow: inset 0 0 0 1px #27496d;
+  height: 25px;
+  padding: 3px;
+  margin: 3px;
   width: 75px;
-  float: left
+  float: left;
+
+  // color: #fff;
 }
 
-.clicked{
-  background-color: #2b3e50;
-  border-radius: 50%;
-  border: thin solid red;
-  height: 75px;
-  width: 75px;
-  float: left
+.not-clicked:hover{
+  box-shadow: inset 0 0 0 1px #27496d,0 5px 15px #193047;
 }
+
+
+.clicked{
+  // background-color: #2b3e50;
+  // text-shadow: -2px 2px #346392;
+  background-image: linear-gradient(top, #6496c8, #346392);
+  // border-radius: 50%;
+  border: thin solid black;
+  box-shadow: inset 0 0 0 1px #27496d,inset 0 5px 30px #193047;
+  height: 25px;
+  padding: 3px;
+  margin: 3px;
+  width: 75px;
+  float: left;
+}
+
+
 
 
 

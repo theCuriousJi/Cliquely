@@ -20,4 +20,5 @@ class Group < ActiveRecord::Base
 
 
   has_many :members, through: :memberships, source: :member
+  has_many :posts, through: :link_memberships, source: :post
 end

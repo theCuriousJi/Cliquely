@@ -2,7 +2,7 @@
   <a href="posts/<%=post.id%>"><%= post.escape("title") %></a> <br>
   <label >URL</label>
   <a href="<%= post.escape("url")%>"><%= post.escape("url") %></a> <br><br>
-  <%= post.escape("created_at") %><br><br>
+  <%= post.escape("time_ago")%> ago<br><br>
   <ul class="comments"></ul>
 
   <div id="like-button"></div>

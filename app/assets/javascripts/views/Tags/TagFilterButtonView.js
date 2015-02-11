@@ -1,28 +1,57 @@
 OurLinks.Views.TagFilterButton = Backbone.View.extend({
   template: JST['tags/filter-button'],
 
-  initialize: function () {
+  initialize: function (options) {
     this.listenTo(this.model, "sync", this.render);
-    this.hidden = false;
+    this.allButton = options.allButton;
+    // if the button controls all tags, it starts off as shown, otherwise its hidden
+    if(this.allButton) {
+      this.hidden = false;
+    } else {
+      this.hidden = true;
+    }
+    this.listenTo(OurLinks.util, 'change:displayedTagIds', this.checkStatus);
   },
 
   events: {
-    'click .toggle': 'showOrHide'
+    'click .toggle': 'show'
   },
 
-  currentlyHidden: function () {
-    return OurLinks.util.get('displayedTagIds').indexOf(this.model.id) === -1
-  },
+  // currentlyHidden: function () {
+  //   // this checks to see if a current tag is hidden
+  //   // return (OurLinks.util.get('displayedTagIds').indexOf(this.model.id) === -1 || this.hidden)
+  //   return this.hidden
+  // },
 
-  showOrHide: function (event) {
-    if(this.currentlyHidden()) {
-      OurLinks.util.addTagId(this.model.id);
+  show: function (event) {
+    // debugger
+    if(this.hidden) {
+      if(this.allButton){
+        OurLinks.util.set('allTagsShown', true)
+        OurLinks.util.replaceTagId(OurLinks.util.get("tagIds"));
+      } else{
+        // debugger;
+        OurLinks.util.replaceTagId([this.model.id]);
+        OurLinks.util.set('allTagsShown', false)
+      }
+
       this.hidden = false;
-    } else {
-      OurLinks.util.removeTagId(this.model.id);
-      this.hidden = true;
     }
+    // else {
+    //   OurLinks.util.removeTagId(this.model.id);
+    //   this.hidden = true;
+    // }
     this.render();
+  },
+
+  checkStatus: function () {
+
+    if((OurLinks.util.get('allTagsShown') && !this.allButton) ||
+    OurLinks.util.get('displayedTagIds').indexOf(this.model.id) === -1 ) {
+      this.hidden = true;
+      this.$('.toggle').prop('disabled', false);
+    }
+    this.render()
   },
 
 
@@ -35,51 +64,9 @@ OurLinks.Views.TagFilterButton = Backbone.View.extend({
       this.$('.toggle').removeClass('clicked').addClass('not-clicked')
     } else {
       this.$('.toggle').removeClass('not-clicked').addClass('clicked')
+      this.$('.toggle').prop('disabled', true);
     }
     return this;
   },
-
-  // buttonText: function(){
-  //   var btnText;
-  //   if(!this.hidden) {
-  //     btnText = "Hide";
-  //   } else {
-  //     btnText = "Show";
-  //   }
-  //   return btnText;
-  // },
-  // setButtonTextAndDisable: function(text, disable){
-  //   var $button = this.$('.join-toggle');
-  //   $button.text(text);
-  //   $button.prop("disabled", true);
-  // },
-
-  // showOrHide: function (event) {
-  //   // manages the join or leave group button
-  //   // Switches display to 'leaving' or 'joining' until success
-  //   event.preventDefault();
-  //   var that = this;
-  //   if(this.model.isNew()) { // not joined
-  //     this.setButtonTextAndDisable('Joining');
-  //     console.log(this.model.get('group_id'));
-  //     this.model.save({}, {
-  //     });
-  //   } else { // joined
-  //     this.setButtonTextAndDisable('Leaving');
-  //     var groupId = this.model.get('group_id');
-  //     this.model.destroy({
-  //       success: function () {
-  //         delete that.model.attributes.id;
-  //         that.render();
-  //       },
-  //       error: function () {
-  //       }
-  //     });
-  //   }
-  //   this.render();
-  // },
-
-
-
 
 })

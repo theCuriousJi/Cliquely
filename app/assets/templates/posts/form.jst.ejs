@@ -7,36 +7,36 @@
 
 <span id='delete-box' class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 
-<h3>Share some cool stuff!</h3>
+  <h3>Share some cool stuff!</h3>
 
-<label >Title</label>
-<input class="post-form" type="text" name="post[title]" value=""><br>
+  <label >Title</label>
+  <input class="post-form" type="text" name="post[title]" value=""><br>
 
-<label >URL</label>
-<input class="post-form" type="text" name="post[url]" value=""><br>
+  <label >URL</label>
+  <input class="post-form" type="text" name="post[url]" value=""><br>
 
-<label >Description</label><br>
-<textarea class="post-form" name="post[description]" rows="8" cols="40"></textarea><br>
+  <label >Description</label><br>
+  <textarea class="post-form" name="post[description]" rows="4" cols="20"></textarea><br>
 
-<ul>
-<label >Who do you want to share this with</label><br>
-<% OurLinks.currentUser.groups().each(function(group) { %>
+  <ul>
+    <label >Who do you want to share this with</label><br>
+      <% OurLinks.currentUser.groups().each(function(group) { %>
 
-  <input type="checkbox" name="post[group_ids][]" value="<%=group.id%>"><%=group.escape('title')%>
+    <input type="checkbox" name="post[group_ids][]" value="<%=group.id%>"><%=group.escape('title')%>
 
-<% }) %>
-</ul>
+      <% }) %>
+  </ul>
 
-<ul>
+  <ul>
 
-<label >Tag it!</label><br>
-<% OurLinks.tags.each(function(tag) { %>
+    <label >Tag it!</label><br>
+      <% OurLinks.tags.each(function(tag) { %>
 
-  <input type="checkbox" name="post[tag_ids][]" value="<%=tag.id%>"><%=tag.escape('name')%>
+    <input type="checkbox" name="post[tag_ids][]" value="<%=tag.id%>"><%=tag.escape('name')%>
 
-<% }) %>
-</ul>
+      <% }) %>
+  </ul>
 
 
-<input id="submit-post" class="submit" type="submit" value="Post">
+  <input id="submit-post" class="submit" type="submit" value="Post">
 </div>

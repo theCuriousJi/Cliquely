@@ -4,7 +4,9 @@ window.OurLinks = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new OurLinks.Routers.Router({$rootEl: $('#main')});
+    var router = new OurLinks.Routers.Router({$rootEl: $('#main')});
+    var view = new OurLinks.Views.Navbar()
+    view.render()
     Backbone.history.start();
   }
 };

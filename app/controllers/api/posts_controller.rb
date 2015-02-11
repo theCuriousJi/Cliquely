@@ -26,8 +26,11 @@ class Api::PostsController < ApplicationController
   end
 
   def index
+    # if params[:title]
+      #query for matching posts
+    # else
     # @posts = Post.all
-    groups = "("+([0] + current_user.group_ids).join(", ")+ ")"
+    # groups = "("+([0] + current_user.group_ids).join(", ")+ ")"
     # groups = current_user.group_ids
     #
     #
@@ -36,18 +39,20 @@ class Api::PostsController < ApplicationController
     #   .where('link_memberships.group_id IN (?)',  [1,2])
     #   .from('posts')
 
-    posts = Post.find_by_sql(<<-SQL)
-    SELECT p.id, title, url, description, p.created_at, lm.group_id, t.tag_id
-    FROM posts as p
-    JOIN
-    link_memberships as lm ON p.id = lm.post_id
-    JOIN
-    taggings as t ON t.post_id = p.id
-    WHERE lm.group_id IN #{groups}
-    ORDER BY p.created_at DESC
-    SQL
 
-    @posts = posts
+    @posts = Post.joins(:link_memberships).where('link_memberships.group_id in (?)', current_user.group_ids)
+    # posts = Post.find_by_sql(<<-SQL)
+    # SELECT p.id, title, url, description, p.created_at, lm.group_id, t.tag_id
+    # FROM posts as p
+    # JOIN
+    # link_memberships as lm ON p.id = lm.post_id
+    # JOIN
+    # taggings as t ON t.post_id = p.id
+    # WHERE lm.group_id IN #{groups}
+    # ORDER BY p.created_at DESC
+    # SQL
+    #
+    # @posts = posts
     render :index
   end
 
