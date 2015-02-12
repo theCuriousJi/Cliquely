@@ -28,9 +28,9 @@ OurLinks.Views.GroupFilterButton = Backbone.View.extend({
         OurLinks.util.replaceGroupId(OurLinks.util.get('groupIds'));
         this.hidden = false
       } else {
+        OurLinks.util.set('allGroupsShown', false)
         OurLinks.util.replaceGroupId([this.model.id]);
         this.hidden = false;
-        OurLinks.util.set('allGroupsShown', false)
       }
     }
 
@@ -39,7 +39,11 @@ OurLinks.Views.GroupFilterButton = Backbone.View.extend({
 
   checkStatus: function () {
     // debugger
-    if((OurLinks.util.get('allGroupsShown') && !this.allButton) ||
+    if(this.allButton && OurLinks.util.get('allGroupsShown') ) {
+        this.hidden = false;
+        this.$('.toggle').prop('disabled', true);
+    }
+     else if((OurLinks.util.get('allGroupsShown') && !this.allButton) ||
       OurLinks.util.get('displayedGroupIds').indexOf(this.model.id) === -1 ) {
       this.hidden = true;
       this.$('.toggle').prop('disabled', false);

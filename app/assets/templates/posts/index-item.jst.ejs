@@ -1,10 +1,14 @@
-  <label >Title</label>
-  <a href="posts/<%=post.id%>"><%= post.escape("title") %></a> <br>
-  <label >URL</label>
-  <a href="<%= post.escape("url")%>"><%= post.escape("url") %></a> <br><br>
-  <%= post.escape("time_ago")%> ago<br><br>
-  <ul class="comments"></ul>
+<div id='index-item-title'><%= post.escape("title") %></div> <br>
+<label >URL</label>
+<a href="<%= post.escape("url")%>"><%= post.escape("url") %></a> <br><br>
+<%= post.escape("time_ago")%> ago<br><br>
+<ul class="comments"></ul>
 
-  <div id="like-button"></div>
-  <button class="delete">Delete Post</button>
+<div class="form-group">
+  <div class="button-wrapper">
+    <div id="like-button"></div>
+  </div>
+
+  <button class="delete-post">Delete Post</button>
   <div id="comment-form"></div>
+</div>

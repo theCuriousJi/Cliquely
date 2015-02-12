@@ -31,8 +31,9 @@ OurLinks.Views.TagFilterButton = Backbone.View.extend({
         OurLinks.util.replaceTagId(OurLinks.util.get("tagIds"));
       } else{
         // debugger;
-        OurLinks.util.replaceTagId([this.model.id]);
         OurLinks.util.set('allTagsShown', false)
+        OurLinks.util.replaceTagId([this.model.id]);
+
       }
 
       this.hidden = false;
@@ -46,7 +47,12 @@ OurLinks.Views.TagFilterButton = Backbone.View.extend({
 
   checkStatus: function () {
 
-    if((OurLinks.util.get('allTagsShown') && !this.allButton) ||
+    if(this.allButton && OurLinks.util.get('allTagsShown') ) {
+        this.hidden = false;
+        this.$('.toggle').prop('disabled', true);
+    }
+
+    else if((OurLinks.util.get('allTagsShown') && !this.allButton) ||
     OurLinks.util.get('displayedTagIds').indexOf(this.model.id) === -1 ) {
       this.hidden = true;
       this.$('.toggle').prop('disabled', false);

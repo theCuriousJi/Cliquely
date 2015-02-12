@@ -13,7 +13,7 @@ OurLinks.Views.GroupShow = Backbone.View.extend({
 
     deleteGroup: function () {
       this.model.destroy();
-      Backbone.history.navigate('', {trigger: true})
+      Backbone.history.navigate('/groups', {trigger: true})
     },
 
   render: function () {

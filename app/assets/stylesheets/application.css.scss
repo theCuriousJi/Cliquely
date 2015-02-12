@@ -10,19 +10,18 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require jquery.svg.css
  *= require_tree .
  *= require_self
  */
  @import "bootswatch/sandstone/variables";
  // @import "bootstrap-sprockets";
  @import "bootstrap";
- body { }
+ body {
+   background-color: #e9eaed}
  @import "bootswatch/sandstone/bootswatch";
  // @import "base";
 
-.navbar{
-   position: relative
- }
 
 
 
@@ -30,6 +29,34 @@ body{
   font-family: 'ff-angie-web-pro', 'freight-sans-pro', Verdana, Geneva, sans-serif;
   // background-color: #2b3e50;
   /*background-image:  url("space-wallpaper-1920x1080-for-desktop-hd-wallpapers-aduphotocom-abstract-landscape-images-1920x1080-wallpaper.jpg");*/
+}
+
+// Navbar
+
+.root-forms{
+
+}
+
+.new-post {
+  padding: 0px 50px;
+  font-size: 20px;
+  display: block;
+  text-align: center;
+  position: relative;
+  border: 1px solid #c4dbf1;
+  background: #ffffff none repeat-x scroll center left;
+  font-size: 150%;
+  font-weight: bold;
+  font-color: #369;
+  line-height: 29px;
+  height: 29px;
+}
+.navbar{
+   position: relative
+ }
+
+.title{
+  padding-left: 10px
 }
 
 .nav-bar > a{
@@ -50,12 +77,7 @@ body{
   float: right;
 }
 
-.index-item{
-  border-bottom: 3px solid black;
-  // border-radius: 5px;
-  overflow: auto
 
-}
 
 #my-groups{
   background-color: #9966FF;
@@ -71,33 +93,118 @@ ul{
 /*Feed
 ____________________________________________*/
 
+.posts{
+  margin-right: 5%;
+  margin-left: 0;
+  padding-left: 0;
+}
+
 .comments{
   font-size: 10px
 }
-
 
 .panel-body{
  padding: 2px;
  height: 50px
 }
 
-.thumbnail{
- padding: 2px;
- height: 50px
-}
 
 .resize{
  width: 30px;
  height: auto
 }
 
-#like-button {
-  float: left
+
+
+/*Post-Index-Item
+____________________________________________*/
+#index-item-title{
+  font-size: 30px;
+
+
 }
+.index-item{
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  overflow: auto
+}
+
+.index-item:hover{
+  background-color: whitesmoke
+}
+
+#like-button {
+  float: left;
+  vertical-align: middle;
+  display: block;
+  margin-top: 10px;
+}
+
+.liked{
+  fill:green
+  // background-image: linear-gradient(top, #6496c8, #346392);
+  // border-radius: 50%;
+
+
+}
+
+.liked:hover{
+  fill: purple;
+}
+
+.unliked{
+  fill: darkgrey
+}
+
+.unliked:hover{
+  fill: purple
+}
+
+
+.post-form{
+  color: #b4a995;
+  border: 1px solid #dfd7c9;
+  border-radius: 5px;
+  background-color: #f8f5f0;
+  padding: 0.55em 0.9em;
+  float: right;
+}
+
+.comment-text{
+
+  vertical-align: middle;
+  margin-left: 15px
+}
+
+.delete-post{
+  display: block;
+  margin-left: 10px;
+  margin-top: 10px;
+  float:left;
+  vertical-align: middle;
+}
+  // comments in the index-item
+    .panel{
+      margin: 0
+    }
+
+
+    .thumbnail{
+     padding: 2px;
+     height: 50px;
+     margin-bottom: 5px
+    }
+
+    .img-responsive{
+
+    }
 
 
 /*Forms
 ____________________________________________*/
+
+// Modals
 .backdrop-form {
 background-color: black;
 position: fixed;
@@ -122,13 +229,6 @@ z-index: 300
 }
 
 
-.post-form{
-  color: #b4a995;
-  border: 1px solid #dfd7c9;
-  border-radius: 5px;
-  background-color: #f8f5f0;
-  padding: 0.55em 0.9em;
-}
 
 // #close-box{
 //   float: right;
@@ -137,10 +237,13 @@ z-index: 300
 //   padding: 3px;
 // }
 
-.delete{
-  margin-bottom: 3%;
 
-}
+// Comment Form
+
+
+
+
+
 
 #delete-box{
   float:right

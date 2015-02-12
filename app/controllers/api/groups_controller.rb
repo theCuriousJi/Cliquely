@@ -16,7 +16,11 @@ class Api::GroupsController < ApplicationController
 
 
   def index
-    @groups = Group.includes(:memberships).all
+    if params[:user_id]
+      @groups = Group.includes(:memberships).where('groups.id in (?)', current_user.group_ids)
+    else
+      @groups = Group.includes(:memberships).all
+    end
     # render json: @groups
     render :index
   end

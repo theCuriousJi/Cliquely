@@ -17,10 +17,12 @@ and resets the filtered collection with the results of the filter
 
 
 To Dos:
+2) allow multiple users to log in
+3) add gravatar img for users
+4) add search
+5) add time ago for comments
+6) why when I remove a group is my post collection remove event triggered
 
-1) makes sure images appear and delete when links are posted.
-2) check remove post on the filtered feed
-3) add comments
 
 
 
@@ -29,18 +31,7 @@ Questions:
 which I add subviews, and one on a sync, after which I render.  while the
 collection fetches, are add events being triggered.
 
-
-
-Pickup tomorrow
-
-Working on Like button
-  -currently have it so that a like button is added as the post is added
-  and the user holds information about each like
-
-
-bugs
-On all groups page, if you are a member of a group, you cant leave and rejoin the group on the same page
-
+2) whats the deal with fetch - Note that fetch should not be used to populate collections on page load — all models needed at load time should already be bootstrapped in to place. fetch is intended for lazily-loading models for interfaces that are not needed immediately: for example, documents with collections of notes that may be toggled open and closed.
 
 1)add filters prop to collections
 collection

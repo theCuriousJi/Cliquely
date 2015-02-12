@@ -36,19 +36,35 @@ OurLinks.Views.LikeButton = Backbone.View.extend({
   },
 
   render: function () {
-    var content = this.template({btnText: this.buttonText()});
+    var content = this.template();
     this.$el.html(content);
+    debugger
+    if(this.model.isNew()) {
+      // btnText = 'Like'
+      // this.$('svg').attr('class', 'liked unliked')
+      this.$('svg').attr('class', 'unliked liked')
+      this.$('svg').attr('class', 'unliked')
+    } else {
+      // btnText = 'Unlike'
+      this.$('svg').attr('class', 'liked unliked')
+      this.$('svg').attr('class', 'liked')
+    }
+
     return this;
   },
 
-  buttonText: function () {
-    var btnText;
-    if(this.model.isNew()) {
-      btnText = 'Like'
-    } else {
-      btnText = 'Unlike'
-    }
-    return btnText;
-  }
+  // buttonText: function () {
+  //   var btnText;
+  //   if(this.model.isNew()) {
+  //     // btnText = 'Like'
+  //     // this.$('svg').attr('class', 'liked unliked')
+  //     this.$('svg').addClass('likd')
+  //   } else {
+  //     // btnText = 'Unlike'
+  //     this.$('svg').attr('class', 'unliked liked')
+  //     this.$('svg').attr('class', 'unliked')
+  //   }
+  //   return btnText;
+  // }
 
 })

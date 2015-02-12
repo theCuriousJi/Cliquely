@@ -5,11 +5,14 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
 
     // this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(OurLinks.posts, 'remove', this.removePost);
-    this.listenTo(OurLinks.posts, 'add', this.filterPosts);
-    this.listenTo(OurLinks.posts, 'add', this.filterPosts);
+    // this.listenTo(OurLinks.posts, 'add', this.filterPosts);
+    this.listenTo(OurLinks.posts, 'refresh', this.resestFeed);
+    // this.listenTo(OurLinks.posts, 'add', this.filterPosts);
     // this.listenTo(OurLinks.posts, 'add', this.render);
     this.listenTo(this.collection, 'reset', this.resetFeed);
     this.listenTo(OurLinks.posts, 'sync', this.filterPosts);
+    // this.listenTo(OurLinks.filteredPosts, 'sync', this.filterPosts);
+    this.listenTo(OurLinks.filteredPosts, 'sync', this.resetFeed);
     this.listenTo(OurLinks.util, 'change:displayedGroupIds', this.filterPosts);
     this.listenTo(OurLinks.util, 'change:displayedTagIds', this.filterPosts);
   },
@@ -22,7 +25,6 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
     })
 
     var that = this;
-
     this.collection.each(function (post) {
       that.addPost(post);
     })
@@ -43,10 +45,6 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
     });
 
     that.removeSubview(mySelector, mySubview);
-  },
-
-  intersectionCheck: function (array1, array2) {
-    // array1
   },
 
   filterPosts: function () {

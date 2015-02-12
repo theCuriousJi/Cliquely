@@ -7,21 +7,26 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
     OurLinks.util.set({'displayedTagIds': []});
     // I populate the filters as the groups are added to the page
     this.groups = OurLinks.currentUser.groups();
-    this.groups.fetch();
+    this.groups.fetch({
+      url: 'api/users/'+OurLinks.currentUserId+'/groups'});
+      // data: {
+      //   search_term: "whatever"
+      // }
+
     this.tags = OurLinks.tags;
     // this.listenTo(this.groups, 'sync', this.addGroupsView());
-    this.filteredPosts = new OurLinks.Collections.Posts();
+    OurLinks.filteredPosts = new OurLinks.Collections.Posts();
     this.addFilters();
     this.addPostsView();
   },
 
   events: {
     'click a.new-group': "addGroupForm",
-    'click a.new-post': "addPostForm",
+    'click a#new-post': "addPostForm",
   },
 
   resetPosts: function () {
-    this.filteredPosts.set(OurLinks.posts.models);
+    OurLinks.filteredPosts.set(OurLinks.posts.models);
   },
 
   addGroupForm: function (event) {
@@ -34,12 +39,12 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
   addPostForm: function (event) {
     event.preventDefault();
       var post = new OurLinks.Models.Post();
-      var view = new OurLinks.Views.PostForm({model: post, collection: this.filteredPosts})
+      var view = new OurLinks.Views.PostForm({model: post, collection: OurLinks.filteredPosts})
       this.addSubview('#form', view);
   },
 
   addPostsView: function () {
-    var postsIndexView = new OurLinks.Views.FilteredFeed({collection: this.filteredPosts})
+    var postsIndexView = new OurLinks.Views.FilteredFeed({collection: OurLinks.filteredPosts})
     this.addSubview('ul.posts', postsIndexView);
   },
 

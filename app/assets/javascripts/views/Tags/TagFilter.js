@@ -2,13 +2,20 @@ OurLinks.Views.TagFilter = Backbone.CompositeView.extend({
   template: JST['tags/filter'],
 
   initialize: function () {
-    this.listenTo(this.collection, 'sync', this.addAllButton);
+    this.addAllButton()
+    this.listenTo(this.collection, 'sync', this.setAllTagIds);
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addTag);
     var that = this;
     this.collection.each(function (tag) {
       that.addTag(tag);
     })
+  },
+
+  setAllTagIds: function () {
+    OurLinks.util.replaceTagId([])
+    OurLinks.util.set('allTagsShown', true)
+    OurLinks.util.replaceTagId(OurLinks.util.get('tagIds'))
   },
 
   addTag: function (tag) {

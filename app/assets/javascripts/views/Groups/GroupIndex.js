@@ -16,16 +16,16 @@ OurLinks.Views.GroupIndex = Backbone.CompositeView.extend({
     this.addSubview('#my-groups', view);
   },
 
-  removeGroup: function (model) {
-    var that = this;
-    _(this.subviews()).each(function (subviews, selector) {
-      _(subviews).each(function (subview) {
-        if(model === subview.model){
-          that.removeSubview(selector, subview);
-        }
-      });
-    });
-  },
+  // removeGroup: function (model) {
+  //   var that = this;
+  //   _(this.subviews()).each(function (subviews, selector) {
+  //     _(subviews).each(function (subview) {
+  //       if(model === subview.model){
+  //         that.removeSubview(selector, subview);
+  //       }
+  //     });
+  //   });
+  // },
 
   render: function () {
     var content = this.template({groups: this.collection});
