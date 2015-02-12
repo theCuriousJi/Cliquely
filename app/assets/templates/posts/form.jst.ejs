@@ -16,12 +16,14 @@
 
       <ul>
         <label >Who do you want to share this with</label><br>
+        <select class="form-control post-form">
         <% OurLinks.currentUser.groups().each(function(group) { %>
 
-          <input type="checkbox" name="post[group_ids][]" value="<%=group.id%>"><%=group.escape('title')%>
+          <option name="post[group_ids][]" value="<%=group.id%>"><%=group.escape('title')%></option>
 
         <% }) %>
       </ul>
+    </select>
 
       <ul>
         <label >Tag it!</label><br>
@@ -30,6 +32,6 @@
         <% }) %>
       </ul>
 
-  <input id="submit-post" class="submit" type="submit" value="Post">
+  <input class="btn btn-primary" id="submit-post" class="submit" type="submit" value="Post">
   </div>
 </div>
