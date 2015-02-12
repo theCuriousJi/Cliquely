@@ -1,22 +1,20 @@
- <article class="row">
-  <div class="col-md-2 col-sm-2 hidden-xs">
-    <figure class="thumbnail">
-      <img class="resize img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
-      <figcaption class="text-center"><%= comment.escape('user_id')%></figcaption>
-    </figure>
-  </div>
-  <div class="col-md-10 col-sm-10">
-    <div class="panel panel-default arrow left">
-      <div class="panel-body">
-        <header class="text-left">
-          <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
-        </header>
-        <div class="comment-post">
-          <p>
-            <%=comment.escape('text') %>
-          </p>
+  <div class="row">
+      <div class="col-xs-2 col-md-1">
+          <img width="30px" src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
+        <div class="col-xs-10 col-md-11">
+        <div class="comment-text">
+          <%=comment.escape('text') %>
         </div>
+        <div>
+            <div class="mic-info">
+                <a href="#"><%=OurLinks.currentUserId%></a>
+            </div>
+        </div>
+
+          <div class="action">
+              <button type="button" class="btn btn-danger btn-xs" title="Delete">
+                  <span class="glyphicon glyphicon-trash"></span>
+              </button>
+          </div>
       </div>
-    </div>
   </div>
-</article>

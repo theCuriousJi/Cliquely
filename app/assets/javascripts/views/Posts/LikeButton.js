@@ -9,21 +9,21 @@ OurLinks.Views.LikeButton = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render)
   },
 
-  setButtonTextAndDisable: function(text){
+  disable: function(text){
     var $button = this.$('.like-toggle');
-    $button.text(text);
+    // $button.text(text);
     $button.prop("disabled", true);
   },
 
   likeOrUnlike: function () {
     var that = this;
     if(this.model.isNew()) {
-      this.setButtonTextAndDisable('Liking')
+      this.disable()
       this.model.save({}, {
       })
 
     } else {
-      this.setButtonTextAndDisable('Unliking')
+      this.disable()
       this.model.destroy( {
         success: function () {
           delete that.model.attributes.id
@@ -38,7 +38,6 @@ OurLinks.Views.LikeButton = Backbone.View.extend({
   render: function () {
     var content = this.template();
     this.$el.html(content);
-    debugger
     if(this.model.isNew()) {
       // btnText = 'Like'
       // this.$('svg').attr('class', 'liked unliked')

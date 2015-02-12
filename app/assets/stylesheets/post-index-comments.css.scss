@@ -1,0 +1,170 @@
+/*Post-Index-Item
+____________________________________________*/
+#index-item-title{
+  font-size: 30px;
+
+
+}
+.index-item{
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  overflow: auto
+}
+
+.index-item:hover{
+  background-color: whitesmoke
+}
+
+.like-count{
+  line-height: 50px
+}
+
+.like-count > span{
+  padding-left: 10px;
+  line-height: 35px
+}
+
+#like-button {
+  float: left;
+  vertical-align: middle;
+  display: block;
+  margin-top: 10px;
+}
+
+#delete-post{
+  float: left;
+  vertical-align: middle;
+  display: block;
+  margin-top: 10px;
+  // display: block;
+  // margin-left: 10px;
+  // margin-top: 10px;
+  // float:left;
+  // vertical-align: middle;
+}
+
+.delete-button{
+  background-image: linear-gradient(rgba(255,255,255,0),
+  rgba(235,235,235,.3)60%,
+  rgba(225,225,225,.6));
+  // border: 1px solid #e5e5e5;
+  border: 1px solid #c8c8c8;
+  height: 26px;
+  background-color: #eee;
+  // background-color: #fcfcfc;
+  box-shadow: 0 1px 2px rgba(0,0,0,.02),inset 0 1px 0
+  rgba(255,255,255,.7),inset -1px 0 0
+  rgba(255,255,255,.7),inset 0 -1px 0
+  rgba(255,255,255,.5),inset 1px 0 0
+  rgba(255,255,255,.7);
+}
+
+.delete-button:hover{
+  box-shadow: 0 1px 3px rgba(0,0,0,0),inset 0 2px 2px
+  rgba(0,0,0,.05),inset 0 1px 1px
+  rgba(0,0,0,.08),inset -2px 0 2px
+  rgba(0,0,0,.03),inset 0 -1px 0
+  rgba(0,0,0,.02),inset 2px 0 2px
+  rgba(0,0,0,.03);
+}
+
+
+.like-toggle{
+  margin-right: 5px;
+  background-image: linear-gradient(rgba(255,255,255,0),
+  rgba(235,235,235,.3)60%,
+  rgba(225,225,225,.6));
+  // border: 1px solid #e5e5e5;
+  border: 1px solid #c8c8c8;
+  height: 26px;
+  background-color: #eee;
+  // background-color: #fcfcfc;
+  box-shadow: 0 1px 2px rgba(0,0,0,.02),inset 0 1px 0
+  rgba(255,255,255,.7),inset -1px 0 0
+  rgba(255,255,255,.7),inset 0 -1px 0
+  rgba(255,255,255,.5),inset 1px 0 0
+  rgba(255,255,255,.7);
+}
+
+.like-toggle:hover{
+  box-shadow: 0 1px 3px rgba(0,0,0,0),inset 0 2px 2px
+  rgba(0,0,0,.05),inset 0 1px 1px
+  rgba(0,0,0,.08),inset -2px 0 2px
+  rgba(0,0,0,.03),inset 0 -1px 0
+  rgba(0,0,0,.02),inset 2px 0 2px
+  rgba(0,0,0,.03);
+}
+
+
+.liked{
+  fill: #297DC2
+  // background-image: linear-gradient(top, #6496c8, #346392);
+  // border-radius: 50%;
+}
+
+.liked:hover{
+
+}
+
+.unliked{
+  fill: darkgrey
+}
+
+.post-form{
+  color: #b4a995;
+  border: 1px solid #dfd7c9;
+  border-radius: 5px;
+  background-color: #f8f5f0;
+  padding: 0.55em 0.9em;
+  float: right;
+}
+
+.comment-text{
+
+  vertical-align: middle;
+  margin-left: 15px
+}
+
+
+  // comments in the index-item
+    .panel{
+      margin: 0
+    }
+
+
+    .thumbnail{
+     padding: 2px;
+     height: 50px;
+     margin-bottom: 5px
+    }
+
+    .img-responsive{
+
+    }
+
+.panel {
+  margin-top: 25px;
+  margin-left: 14px;
+}
+
+#feed > div:nth-child(1) > div.container > div.row > div > div.panel-heading{
+  padding: 0px
+}
+
+.widget .panel-body { padding: 0px;  }
+.widget .panel-body { border: none;  }
+.widget .comments { margin-bottom: 0; }
+.widget .panel-title { display:inline }
+.widget .label-info { float: right; }
+.widget li.list-group-item {
+  border-radius: 0;
+  margin-left: -40px;
+  padding: 5px 0px 0px 5px;
+  border: 0;border-top: 1px solid #ddd;
+  }
+.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+.widget .mic-info { color: #666666;font-size: 11px; }
+.widget .action { margin-top:5px; }
+.widget .comment-text { font-size: 12px; }
+.widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }

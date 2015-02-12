@@ -1,14 +1,50 @@
-<div id='index-item-title'><%= post.escape("title") %></div> <br>
+<div class="container">
+  <div id='index-item-title'><%= post.escape("title") %></div> <br>
 <label >URL</label>
-<a href="<%= post.escape("url")%>"><%= post.escape("url") %></a> <br><br>
-<%= post.escape("time_ago")%> ago<br><br>
-<ul class="comments"></ul>
-
+<a href="<%= post.escape("url")%>"><%= post.escape("url") %></a> <br>
+<%= post.escape("time_ago")%> ago<br>
 <div class="form-group">
   <div class="button-wrapper">
     <div id="like-button"></div>
   </div>
 
-  <button class="delete-post">Delete Post</button>
-  <div id="comment-form"></div>
+
+  <div class="button-wrapper">
+    <div id="delete-post">
+      <button class="delete-button">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="21px" height="17px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+        <g id="Captions">
+        </g>
+        <g id="Your_Icon">
+          <path fill="#000000" d="M12.52 17.178v7.772h7.418l2.568 75.018h55.172l2.568-75.018h7.418v-7.772H12.52z M36.991 86.794h-5.153 l-1.301-53.386h6.454V86.794z M52.891 86.794h-5.597V33.407h5.597V86.794z M68.184 86.794h-5.039V33.407h6.502L68.184 86.794z"/>
+          <polygon fill="#000000" points="57.6,6 57.6,-0 42.6,-0 42.6,6 16.4,6 16.4,13.8 83.8,13.8 83.8,6"/>
+        </g>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="like-count">
+    <span>X People like this</span>
+  </div>
+
+
 </div>
+
+<div class="divider"></div>
+    <div class="row">
+        <div class="panel panel-default widget">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-comment"></span>
+                <h3 class="panel-title">Comments</h3>
+                <span class="label label-info">
+                    78</span>
+            </div>
+            <div class="panel-body">
+              <ul class="comments"></ul>
+            </div>
+     </div>
+ </div>
+</div>
+
+<div id="comment-form"></div>

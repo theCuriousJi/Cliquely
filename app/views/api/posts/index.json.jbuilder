@@ -1,6 +1,7 @@
 json.array! @posts do |post|
  json.extract! post, :id, :title, :url, :description, :group_ids, :tag_ids, :comments, :created_at
  json.time_ago time_ago_in_words(post.created_at)
+ json.like_count post.likes.length
 
 if current_user.likes?(post)
     json.like current_user.likes.where(post_id: post.id).first.id

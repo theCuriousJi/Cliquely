@@ -18,7 +18,6 @@ OurLinks.Views.CommentForm = Backbone.View.extend({
     data.comment['post_id'] = this.model.id
     var comment = new OurLinks.Models.Comment(data.comment)
     var that = this
-    debugger
     comment.save({}, {
       success: function () {
         that.collection.add(comment)

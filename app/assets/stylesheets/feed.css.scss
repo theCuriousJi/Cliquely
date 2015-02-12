@@ -1,0 +1,38 @@
+/*Feed
+____________________________________________*/
+
+#main{
+  margin-top: 60px;
+}
+
+#main > div > div.container-fluid > div:nth-child(2) > div.col-md-8.filtered-feed {
+  margin-left: 3%;
+  width: 60%
+}
+
+#feed{
+  padding: 20px;
+border: 1px solid rgba(0,0,0,.1);
+background: #e0e1e2;
+}
+
+.posts{
+  margin-right: 5%;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.comments{
+  font-size: 10px
+}
+
+.panel-body{
+ padding: 2px;
+ height: 50px
+}
+
+
+.resize{
+ width: 30px;
+ height: auto
+}
