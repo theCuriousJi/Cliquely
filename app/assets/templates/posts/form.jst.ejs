@@ -1,7 +1,11 @@
 <div class="backdrop-form"></div>
   <div class="modal-content">
     <div class="form-group">
-      <span id='delete-box' class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <span id='delete-box' aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" id="Layer_1" x="0px" y="0px" width="35px" height="35px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+        <polygon fill="#000000" points="44,13.6 36.3,6 25,17.4 13.6,6 6,13.7 17.3,25 6,36.4 13.6,44 25,32.6 36.4,44 44,36.4 32.6,25"/>
+        </svg>
+      </span>
 
       <h3>Share some cool stuff!</h3>
 
@@ -31,6 +35,8 @@
         <input type="checkbox" name="post[tag_ids][]" value="<%=tag.id%>"><%=tag.escape('name')%>
         <% }) %>
       </ul>
+
+
 
   <input class="btn btn-primary" id="submit-post" class="submit" type="submit" value="Post">
   </div>

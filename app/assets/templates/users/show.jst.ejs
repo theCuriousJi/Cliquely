@@ -1,24 +1,3 @@
-
-<h3>Groups</h3>
-<ul class="user-groups"> </ul>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <h2 class="title"><%=user.escape('fname')%></h2>
-    </div>
-
-    <div class="col-md-8">
-      <div class="root-forms">
-        <a id="new-post" class="new-post" href="#">New Post</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
 <div class="main-conatiner">
   <div class="row">
     <div class="col-md-3">
@@ -29,12 +8,18 @@
       <div id="tag-filter">
         <ul class="tags"> </ul>
       </div>
+
+        <h3>Groups</h3>
+        <ul class="user-groups"> </ul>
     </div>
 
     <div class="col-md-8">
-      <h2 class="title">Posts</h2>
+      <h2 class="title"><%=user.escape('fname')%>'s Favorited Links</h2>
       <ul class="posts"> </ul>
     </div>
 
   </div>
+
+
+
 </div>

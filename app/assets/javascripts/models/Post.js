@@ -1,9 +1,6 @@
 OurLinks.Models.Post = Backbone.Model.extend({
   urlRoot: '/api/posts',
 
-  // defaults: {
-  //   likeCount: 0
-  // },
 
   parse: function (response) {
     if(response.like) {
@@ -17,7 +14,7 @@ OurLinks.Models.Post = Backbone.Model.extend({
     }
 
     if(response.like_count) {
-      // this.model.set('likeCount', response.like_count)
+      this.likeCount().set('likeCount', response.like_count)
       delete response.like_count
     }
 
@@ -37,6 +34,13 @@ OurLinks.Models.Post = Backbone.Model.extend({
       this._comments = new OurLinks.Collections.Comments()
     }
     return this._comments
-  }
+  },
+
+  likeCount: function () {
+    if(!this._likeCount) {
+      this._likeCount = new OurLinks.Models.LikeCount()
+    }
+    return this._likeCount
+  },
 
 })

@@ -2,10 +2,15 @@ json.array! @posts do |post|
  json.extract! post, :id, :title, :url, :description, :group_ids, :tag_ids, :created_at
  json.time_ago time_ago_in_words(post.created_at)
  json.like_count post.likes.length
- json.like_count post.likes.length
+ json.user_fname post.user.fname
+ json.user_lname post.user.lname
+ json.user_id post.user.id
  json.comments post.comments do |comment|
    json.extract! comment, *comment.attributes.keys
    json.time_ago time_ago_in_words(comment.created_at)
+   json.user_fname comment.user.fname
+   json.user_lname comment.user.lname
+   json.user_id comment.user.id
  end
 
 if current_user.likes?(post)

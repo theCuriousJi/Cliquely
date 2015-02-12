@@ -1,5 +1,5 @@
 <a id='index-item-title' href="<%= post.escape("url")%>" target = '_blank'><%= post.escape("title") %></a> <br>
-<%= post.escape("time_ago")%> ago<br>
+Posted by <a href="#/users/<%=post.get('user_id')%>"> <%= post.escape("user_fname")%> <%= post.escape("user_lname")%></a> <%= post.escape("time_ago")%> ago<br>
 <div class="form-group">
   <div class="button-wrapper">
     <div id="like-button"></div>
@@ -22,7 +22,6 @@
   </div>
 
   <div class="like-count">
-    <span>X People like this</span>
   </div>
 
 
@@ -32,10 +31,7 @@
     <div class="ninetyfive">
         <div class="panel panel-default widget">
             <div class="panel-heading">
-                <span class="glyphicon glyphicon-comment"></span>
                 <h3 class="panel-title">Comments</h3>
-                <span class="label label-info">
-                    78</span>
             </div>
             <div class="panel-body">
               <ul class="comments"></ul>

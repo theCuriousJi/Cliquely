@@ -9,12 +9,11 @@
   <input type="password" name="user[password]" value="">
 
   <input type="submit" name="Submit" class="btn btn-primary">
-
 </form>
 
-link_to new_user_url('Sign Up', new_user_url)
+<%=link_to "Sign Up", new_user_url%>
 
 <% else%>
 <h1>Sign Out</h1>
-button_to "Sign Out", session_url, method: delete
+<%=button_to "Sign Out", session_url, method: delete%>
 <%end%>

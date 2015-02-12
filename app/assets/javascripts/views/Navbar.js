@@ -3,7 +3,7 @@ OurLinks.Views.Navbar = Backbone.CompositeView.extend({
 
   events: {
     'click a#new-post': 'addPostForm',
-    'submit form': 'search',
+    'click button.search': 'search',
     'click a#new-group': "addGroupForm",
   },
 
@@ -17,7 +17,8 @@ OurLinks.Views.Navbar = Backbone.CompositeView.extend({
   search: function (event) {
     event.preventDefault()
     $currentTarget = $(event.currentTarget);
-    var query = $currentTarget.find('.query').val()
+    $search = $('form.search')
+    var query = $search.find('.query').val()
     OurLinks.filteredPosts.fetch({data: {title: query} } )
 
   },

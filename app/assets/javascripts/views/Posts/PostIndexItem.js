@@ -4,6 +4,7 @@ OurLinks.Views.PostIndexItem = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
     this.addLikeButton();
+    this.addLikeCount();
     // this.addComments();
     this.addCommentForm();
     this.$el.addClass('index-item');
@@ -34,11 +35,17 @@ OurLinks.Views.PostIndexItem = Backbone.CompositeView.extend({
   },
 
   addLikeButton: function () {
-    var view = new OurLinks.Views.LikeButton({model: this.model.like()});
+    var view = new OurLinks.Views.LikeButton({model: this.model.like(), post: this.model});
     this.addSubview('#like-button', view)
   },
 
+  addLikeCount: function () {
+    var view = new OurLinks.Views.LikeCount({model: this.model});
+    this.addSubview('.like-count', view)
+  },
+
   render: function () {
+
     var content = this.template({post: this.model});
     this.$el.html(content);
     return this;

@@ -1,12 +1,14 @@
-OurLinks.Views.LikeButton = Backbone.View.extend({
+OurLinks.Views.LikeButton = Backbone.CompositeView.extend({
   template: JST['posts/like-button'],
 
   events: {
     'click .like-toggle': 'likeOrUnlike'
   },
 
-  initialize: function () {
-    this.listenTo(this.model, 'sync', this.render)
+  initialize: function (options) {
+    this.listenTo(this.model, 'sync', this.render);
+    this.post = options.post
+
   },
 
   disable: function(text){
@@ -20,12 +22,18 @@ OurLinks.Views.LikeButton = Backbone.View.extend({
     if(this.model.isNew()) {
       this.disable()
       this.model.save({}, {
+        success: function () {
+          var current = _.clone(that.post.likeCount().get('likeCount'))
+          that.post.likeCount().set('likeCount', current + 1)
+        }
       })
 
     } else {
       this.disable()
       this.model.destroy( {
         success: function () {
+          var current = _.clone(that.post.likeCount().get('likeCount'))
+          that.post.likeCount().set('likeCount', current -1)
           delete that.model.attributes.id
           that.render()
 

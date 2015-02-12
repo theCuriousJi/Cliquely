@@ -1,0 +1,5 @@
+  <%if(post.likeCount().get('likeCount') === 1) {%>
+    <%=post.likeCount().get('likeCount')%> Person likes this
+    <%} else {%>
+      <%=post.likeCount().get('likeCount')%> People like this
+    <% }%>
