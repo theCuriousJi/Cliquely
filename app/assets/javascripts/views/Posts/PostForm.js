@@ -9,7 +9,7 @@ OurLinks.Views.PostForm = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.$el.addClass('form-inline')
+    this.$el.addClass('form-horisontal')
     this.open = true;
     // this.listenTo()
   },

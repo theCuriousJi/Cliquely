@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+  before_action :redirect_if_logged_in
+  
   def create
     @user = User.new(user_params)
 

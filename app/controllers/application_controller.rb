@@ -15,6 +15,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def redirect_if_logged_in
+    if current_user
+      redirect_to root
+    end
+  end
+
   def current_user
     return nil unless session[:session_token]
     @current_user ||= user = User.find_by_session_token(session[:session_token])

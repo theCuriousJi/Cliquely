@@ -17,11 +17,13 @@ and resets the filtered collection with the results of the filter
 
 
 To Dos:
-2) allow multiple users to log in
 3) add gravatar img for users
-4) add search
 5) add time ago for comments
-6) why when I remove a group is my post collection remove event triggered
+6) fix comments alignment
+7) fix sign in / user links
+8) fix filters
+9) fix forms
+
 
 
 

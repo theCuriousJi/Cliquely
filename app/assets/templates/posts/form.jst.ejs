@@ -1,42 +1,35 @@
 <div class="backdrop-form"></div>
+  <div class="modal-content">
+    <div class="form-group">
+      <span id='delete-box' class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 
-<div class="modal-content">
+      <h3>Share some cool stuff!</h3>
 
-<!-- <div id="close-box">
-<img src="images/noun_19522.svg"></div> -->
+      <label >Title</label>
+      <input class="form-control post-form" type="text" name="post[title]" value=""><br>
 
-<span id='delete-box' class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <label >URL</label>
+      <input class="form-control post-form" type="text" name="post[url]" value=""><br>
 
-  <h3>Share some cool stuff!</h3>
+      <label >Description</label><br>
+      <textarea class="form-control post-form" name="post[description]" rows="4" cols="20"></textarea><br>
 
-  <label >Title</label>
-  <input class="post-form" type="text" name="post[title]" value=""><br>
+      <ul>
+        <label >Who do you want to share this with</label><br>
+        <% OurLinks.currentUser.groups().each(function(group) { %>
 
-  <label >URL</label>
-  <input class="post-form" type="text" name="post[url]" value=""><br>
+          <input type="checkbox" name="post[group_ids][]" value="<%=group.id%>"><%=group.escape('title')%>
 
-  <label >Description</label><br>
-  <textarea class="post-form" name="post[description]" rows="4" cols="20"></textarea><br>
+        <% }) %>
+      </ul>
 
-  <ul>
-    <label >Who do you want to share this with</label><br>
-      <% OurLinks.currentUser.groups().each(function(group) { %>
-
-    <input type="checkbox" name="post[group_ids][]" value="<%=group.id%>"><%=group.escape('title')%>
-
-      <% }) %>
-  </ul>
-
-  <ul>
-
-    <label >Tag it!</label><br>
-      <% OurLinks.tags.each(function(tag) { %>
-
-    <input type="checkbox" name="post[tag_ids][]" value="<%=tag.id%>"><%=tag.escape('name')%>
-
-      <% }) %>
-  </ul>
-
+      <ul>
+        <label >Tag it!</label><br>
+        <% OurLinks.tags.each(function(tag) { %>
+        <input type="checkbox" name="post[tag_ids][]" value="<%=tag.id%>"><%=tag.escape('name')%>
+        <% }) %>
+      </ul>
 
   <input id="submit-post" class="submit" type="submit" value="Post">
+  </div>
 </div>

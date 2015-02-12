@@ -19,14 +19,17 @@
 
  @import "bootswatch/sandstone/variables";
  // @import "bootstrap-sprockets";
-
  @import "bootstrap";
  body {
    background-color: #e9eaed;}
  @import "bootswatch/sandstone/bootswatch";
  // @import "base";
 
-
+.group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
 
 
 body{

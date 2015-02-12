@@ -18,7 +18,6 @@ OurLinks.Views.Navbar = Backbone.CompositeView.extend({
     event.preventDefault()
     $currentTarget = $(event.currentTarget);
     var query = $currentTarget.find('.query').val()
-    debugger
     OurLinks.filteredPosts.fetch({data: {title: query} } )
 
   },
