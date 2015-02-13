@@ -31,8 +31,8 @@
   clear: both;
 }
 
-.landing-image{
-  background-size: 100%;
+.landing{
+  background-image: url('unnamed.jpg')
   // z-index: -1;
   // width: 100%;
   // height: 100%;
@@ -51,9 +51,26 @@ ul{
 }
 
 
-.title{
-    font-family: 'Permanent Marker', 'cursive'
+h2.title{
+    font-family: 'Permanent Marker', 'cursive';
+    -webkit-transition-duration: 4s;
+    -moz-transition-duration: 4s;
+    -o-transition-duration: 4s;
+    transition-duration: 4s;
+
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+
+    overflow:hidden
   }
+h2.title:hover {
+color: green;
+-webkit-transform:rotate(360deg);
+  -moz-transform:rotate(360deg);
+  -o-transform:rotate(360deg);
+}
 
 a {
   color: #297DC2

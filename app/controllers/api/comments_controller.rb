@@ -6,7 +6,7 @@ class Api::
     if @comment.save
       # id = @comment.post_id
       # @post = Post.find(id)
-      render json: @comment # need to render back user.fname, etc
+      render :show # need to render back user.fname, etc
     else
       render json: "error"
     end
@@ -16,6 +16,12 @@ class Api::
 
   def destroy
   end
+
+  def show
+    @comment = Comment.find(params[:id])
+    render :show
+  end
+
 
   def comment_params
     params.require(:comment).permit(:post_id, :text)
