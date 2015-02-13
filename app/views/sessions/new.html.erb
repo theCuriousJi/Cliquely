@@ -1,24 +1,40 @@
+
 <%if !current_user%>
-<h1>Sign In</h1>
+<div class="container">
+  <header>
+    <h1 id="logo">OurLinks</h1>
+    <h4 id="description">Share, sort, and save your favorite content on the web</h4>
+  </header>
+  <div class="group"></div>
+  <div id="top-bar"></div>
 
-<form action="<%=session_url%>" method="post">
+    <!-- <div class="landing"> -->
+      <div id="wrap" class="group">
 
-  <label>Email Address</label>
-  <input type="text" name="user[email]" value="">
-  <label >Password</label>
-  <input type="password" name="user[password]" value="">
+    <div class="group" id="sign-in">
 
-  <input type="submit" name="Submit" class="btn btn-primary">
-</form>
+      <h1 class="log-in-title">Sign In</h1>
+      <form action="<%=session_url%>" method="post">
+      <h4>Email Address</h4>
+      <div class=form-group>
+        <input type="text" name="user[email]" value="">
+      </div>
+      <h4 >Password</h4>
+      <div class=form-group>
+        <input type="password" name="user[password]" value="">
+      </div>
+    <div >
+      <input class="sign-in-btn btn btn-primary" type="submit" name="Submit" class="btn btn-primary">
+    </div>
+    </form>
+    <button class="btn btn-primary" name="guest_signup">Guest Sign In</button><br>
+    <span class="sign-in-link"><%=link_to "Not Signed Up? Sign Up Here", new_user_url%></span>
 
-<%=link_to "Sign Up", new_user_url%>
-
-<% else%>
-<h1>Sign Out</h1>
-<%=button_to "Sign Out", session_url, method: :delete%>
-<%end%>
-
-
-<div class="landing">
-
+    <% else%>
+    <h1>Sign Out</h1>
+    <%=button_to "Sign Out", session_url, method: :delete%>
+  </div>
+  </div>
+  <!-- </div> -->
 </div>
+    <%end%>

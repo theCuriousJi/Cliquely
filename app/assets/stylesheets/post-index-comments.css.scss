@@ -7,11 +7,13 @@ ____________________________________________*/
   background-color: white;
   margin: 10px;
   padding: 10px;
-  overflow: auto
+  overflow: auto;
+  webkit-transition:background-color 3s, -webkit-transform 3s;
+   transition:background-color 3s, transform 3s;
 }
 
 .index-item:hover{
-  background-color: whitesmoke
+  background-color: #FFE94C
 }
 
 .like-count{
@@ -61,6 +63,8 @@ ____________________________________________*/
   rgba(255,255,255,.7),inset 0 -1px 0
   rgba(255,255,255,.5),inset 1px 0 0
   rgba(255,255,255,.7);
+  webkit-transition:background-color 2s, -webkit-transform 2s;
+   transition:background-color 2s, transform 2s;
 }
 
 .delete-button:hover{
@@ -70,6 +74,7 @@ ____________________________________________*/
   rgba(0,0,0,.03),inset 0 -1px 0
   rgba(0,0,0,.02),inset 2px 0 2px
   rgba(0,0,0,.03);
+  background-color: orange
 }
 
 
@@ -88,6 +93,8 @@ ____________________________________________*/
   rgba(255,255,255,.7),inset 0 -1px 0
   rgba(255,255,255,.5),inset 1px 0 0
   rgba(255,255,255,.7);
+  -webkit-transition:background-color 2s, -webkit-transform 2s;
+   transition:background-color 2s, transform 2s;
 }
 
 .like-toggle:hover{
@@ -97,6 +104,7 @@ ____________________________________________*/
   rgba(0,0,0,.03),inset 0 -1px 0
   rgba(0,0,0,.02),inset 2px 0 2px
   rgba(0,0,0,.03);
+  background-color: orange
 }
 
 
@@ -106,13 +114,15 @@ ____________________________________________*/
   // border-radius: 50%;
 }
 
-.liked:hover{
+.unliked:hover{
 
 }
 
 .unliked{
   fill: darkgrey
 }
+
+
 
 .post-form{
   color: #b4a995;
@@ -170,7 +180,9 @@ ____________________________________________*/
   padding: 5px 0px 0px 5px;
   border: 0;border-top: 1px solid #ddd;
   }
-.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+.widget li.list-group-item:hover {
+  background-color: whitesmoke;
+  }
 .widget .mic-info { color: #666666;font-size: 11px; }
 .widget .action { margin-top:5px; }
 .widget .comment-text { font-size: 12px; }
