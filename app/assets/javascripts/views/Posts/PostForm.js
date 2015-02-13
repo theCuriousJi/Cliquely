@@ -27,10 +27,13 @@ OurLinks.Views.PostForm = Backbone.View.extend({
       },
 
       error: function (model, response) {
-        response.responseJSON.forEach(function (error) {
-          var content = that.errorTemplate({error: error})
-          that.$('.modal-content').prepend(content)
-        })
+        if(response.responseJSON){
+          response.responseJSON.forEach(function (error) {
+            var content = that.errorTemplate({error: error})
+            that.$('.modal-content').prepend(content)
+          })
+        }
+
       }
     })
   },

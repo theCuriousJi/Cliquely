@@ -42,7 +42,7 @@ Post.create!([
   {title: "Curie!", url: "https://vimeo.com/92405446", description: "My cats are the greatest", user_id: 8},#14
   {title: "Markov!", url: "https://vimeo.com/92405390", description: "My cats are the greatest", user_id: 8},#15
   {title: "Ronda Rousey goes Topless", url: "http://a.espncdn.com/photo/2012/0709/espn_bodyissue_17b.jpg", description: "Ronda bares all", user_id: 4}, #16,
-  {title: "OMG Possible Ronda Rousey Nudes", url: "http://a.espncdn.com/photo/2012/0709/espn_bodyissue_17b.jpg", description: "Ronda bares all", user_id: 4}, #17
+  {title: "Possible Ronda Rousey Nudes", url: "http://a.espncdn.com/photo/2012/0709/espn_bodyissue_17b.jpg", description: "Ronda bares all", user_id: 4}, #17
   {title: "Lupe's only interview before Tetsuo and Youth", url: "http://www.billboard.com/articles/columns/the-juice/6443500/lupe-fiasco-tetsuo-youth-iggy-azalea-quitting-twitter", description: "", user_id: 3} #18
 
 ])
@@ -106,7 +106,10 @@ Comment.create!([
   {text: "Dope", post_id: 1, user_id: 1},
   {text: "Diggin it", post_id: 1, user_id: 1},
   {text: "Too good", post_id: 2, user_id: 1},
-  {text: "Confirmed, they are real", post_id: 17, user_id: 1},
+  {text: "Confirmed, they are real", post_id: 17, user_id: 6},
+  {text: "Great find, man", post_id: 17, user_id: 7},
+  {text: "Now THAT is why you're a TA!", post_id: 17, user_id: 8}
+
 ])
 
 Like.create!([

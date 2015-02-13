@@ -19,18 +19,17 @@
       <textarea class="form-control post-form" name="post[description]" rows="4" cols="20"></textarea><br>
 
       <label >Who do you want to share this with
-      <span class="custom-dropdown custom-dropdown--white">
-      <!-- <ul class="post-form-list"> -->
+      <ul class="post-form-list">
 
         <!-- <select class="form-control post-form"> -->
-        <select class="custom-dropdown__select custom-dropdown__select--white">
           <% OurLinks.currentUser.groups().each(function(group) { %>
-          <option name="post[group_ids][]" value="<%=group.id%>"><%=group.escape('title')%></option>
-        <% }) %>
-      <!-- </ul> -->
-      </select>
-    </span>
-  </label>
+          <!-- <option name="post[group_ids][]" value=""></option> -->
+          <label id="tags-checkbox"><%=group.escape('title')%></label>
+          <input type="checkbox" name="post[group_ids][]" value="<%=group.id%>">
+          <% }) %>
+      </ul>
+        </select>
+      </label>
 
       <ul class="post-form-list">
         <label >Tag it!</label><br>
