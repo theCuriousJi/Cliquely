@@ -26,7 +26,7 @@ OurLinks.Views.PostIndexItem = Backbone.CompositeView.extend({
   },
 
   addComment: function (comment) {
-      var view = new OurLinks.Views.CommentShow({model: comment })
+      var view = new OurLinks.Views.CommentShow({ model: comment })
       this.addSubview('.comments', view)
   },
 

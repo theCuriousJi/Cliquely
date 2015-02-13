@@ -1,9 +1,7 @@
 /*Post-Index-Item
 ____________________________________________*/
 #index-item-title{
-  font-size: 30px;
-
-
+  font-size: 24px;
 }
 .index-item{
   background-color: white;
@@ -30,6 +28,11 @@ ____________________________________________*/
   vertical-align: middle;
   display: block;
   margin-top: 10px;
+}
+
+.button-group{
+  margin-bottom: 0px
+
 }
 
 #delete-post{
@@ -123,7 +126,7 @@ ____________________________________________*/
 .comment-text{
 
   vertical-align: middle;
-  margin-left: 15px
+  margin-left: 0px
 }
 
 

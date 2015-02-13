@@ -21,6 +21,7 @@ OurLinks.Views.CommentForm = Backbone.View.extend({
     comment.save({}, {
       success: function () {
         that.collection.add(comment)
+        this.$('.comment-text').empty()
       }
     })
 

@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_if_logged_in
     if current_user
-      redirect_to root
+      redirect_to root_url
     end
   end
 
