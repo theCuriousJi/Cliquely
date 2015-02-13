@@ -31,6 +31,7 @@
 
 .navbar{
   background-color: #3A64AE;
+  border: none
 }
 .btn{
   background-color: #3A64AE;
@@ -38,7 +39,6 @@
 
 
 .form-group{
-  text-align: center
 }
 .group:after {
   content: '';
@@ -47,7 +47,9 @@
 }
 
 header{
-  text-align: center
+  text-align: center;
+  position: relative;
+  top: 50px;
 }
 
 .title{font-family: 'Permanent Marker', 'cursive';}
@@ -117,13 +119,14 @@ font-size: 16px;
 
 }
 
-// .log-in-title{
-//   margin-left: 50%;
-//   transform: translateX(-50%);
-// }
+.log-in-title{
+  position: relative;
+  bottom: 20px;
+  font-weight: bold;
+}
 #sign-in{
   border-radius: 5px;
-  width: 500px;
+  width: 450px;
   height: 325px;
   margin-left: 50%;
   margin-top: 15%;
@@ -139,6 +142,11 @@ font-size: 16px;
     float:left;
     width: 119px;
     margin-left: 15%
+  }
+
+  .sign-in-link{
+    position: relative;
+    top: 10px;
   }
 
 body{
@@ -190,6 +198,7 @@ bottom: 0;
 top: 0;
 z-index: 252;
 opacity: 0.5;
+
 
 }
 

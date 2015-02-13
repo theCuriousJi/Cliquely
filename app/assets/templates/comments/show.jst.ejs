@@ -1,14 +1,14 @@
   <div class="row">
-      <div class="col-xs-2 col-md-1">
-          <img width="30px" src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
-        <div class="col-xs-10 col-md-11">
+      <!-- <div class="col-xs-2 col-md-1">
+          <img width="30px" src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div> -->
+        <div class="col-xs-12 col-md-12">
         <div class="comment-text">
           <%=comment.escape('text') %>
         </div>
         <div>
             <div class="mic-info">
-                <span>Posted by </span><a href="#/users/<%=comment.get('user_id')%>"><%=comment.get('user_fname')%> <%=comment.get('user_lname')%></a>
-                <span href="#"><%=comment.get('time_ago')%> ago</span>
+                <span id="comment-info">Posted by </span><a href="#/users/<%=comment.get('user_id')%>"><%=comment.get('user_fname')%> <%=comment.get('user_lname')%></a>
+                <span id="comment-info" href="#"><%=comment.get('time_ago')%> ago</span>
             </div>
         </div>
       </div>

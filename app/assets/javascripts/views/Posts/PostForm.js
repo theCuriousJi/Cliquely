@@ -1,6 +1,7 @@
 OurLinks.Views.PostForm = Backbone.View.extend({
   template: JST['posts/form'],
   closedTemplate: JST['posts/closed'],
+  errorTemplate: JST['errors'],
   tagName: 'form',
   events: {
     'click #submit-post': "create",
@@ -23,6 +24,13 @@ OurLinks.Views.PostForm = Backbone.View.extend({
       success: function () {
         OurLinks.posts.add(post);
         that.closeForm(event);
+      },
+
+      error: function (model, response) {
+        response.responseJSON.forEach(function (error) {
+          var content = that.errorTemplate({error: error})
+          that.$('.modal-content').prepend(content)
+        })
       }
     })
   },
