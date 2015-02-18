@@ -1,12 +1,6 @@
 User.create!([
 {fname: "Gaurav", lname: "Nagpal", email: "gauravnagpal19@gmail.com", password: "123123"},
-{fname: "Guest", lname: "User", email: "guest1@gmail.com", password: "123123"},
-{fname: "Rishi", lname: "Arora", email: "guest2@gmail.com", password: "123123"},
-{fname: "Jeffrey", lname: "Fiddler", email: "guest3@gmail.com", password: "123123"},
-{fname: "Justin", lname: "CG", email: "guest4@gmail.com", password: "123123"},
-{fname: "Saikat", lname: "Bhadra", email: "guest5@gmail.com", password: "123123"},
-{fname: "Varun", lname: "Prabhakar", email: "guest6@gmail.com", password: "123123"},
-{fname: "Ned", lname: "Ruggeri", email: "guest7@gmail.com", password: "123123"}
+{fname: "Guest", lname: "User", email: "guest1@gmail.com", password: "123123"}
 
 
 ])
@@ -37,14 +31,7 @@ Post.create!([
   {title: "Great resource for inline editing", url: "http://vitalets.github.io/x-editable/", description: "This is a great tutorial for adding inline editing to your site", user_id: 6}, #9
   {title: "Add a fullscreen video to your splash page", url: "http://tympanus.net/codrops/2012/09/19/fullscreen-video-slideshow-with-bigvideo-js/", description: "This is a great tutorial for adding a full scren video to your splash page", user_id: 7}, #10
   {title: "Quora post on getting a job after graduating a software development bootcamp", url: "http://www.quora.com/Im-about-to-graduate-from-Dev-Bootcamp-programming-bootcamp-how-can-I-best-spend-my-time-job-hunting", description: "Solid insights on the job search", user_id: 7}, #11
-  {title: "Ronda Rousey is fierce", url: "http://a.espncdn.com/photo/2012/0709/espn_bodyissue_17b.jpg", description: "Ronaa bares all", user_id: 4}, #12
-  {title: "Backbone Tutorial", url: "http://a.espncdn.com/photo/2012/0709/espn_bodyissue_17b.jpg", description: "Ronda bares all", user_id: 8},#13
-  {title: "Curie!", url: "https://vimeo.com/92405446", description: "My cats are the greatest", user_id: 8},#14
-  {title: "Markov!", url: "https://vimeo.com/92405390", description: "My cats are the greatest", user_id: 8},#15
-  {title: "Ronda Rousey goes Topless", url: "http://a.espncdn.com/photo/2012/0709/espn_bodyissue_17b.jpg", description: "Ronda bares all", user_id: 4}, #16,
-  {title: "Possible Ronda Rousey Nudes", url: "http://a.espncdn.com/photo/2012/0709/espn_bodyissue_17b.jpg", description: "Ronda bares all", user_id: 4}, #17
-  {title: "Lupe's only interview before Tetsuo and Youth", url: "http://www.billboard.com/articles/columns/the-juice/6443500/lupe-fiasco-tetsuo-youth-iggy-azalea-quitting-twitter", description: "", user_id: 3} #18
-
+  {title: "Lupe's only interview before Tetsuo and Youth", url: "http://www.billboard.com/articles/columns/the-juice/6443500/lupe-fiasco-tetsuo-youth-iggy-azalea-quitting-twitter", description: "", user_id: 3} #12
 ])
 
 LinkMembership.create!([
@@ -92,23 +79,13 @@ Tagging.create!([
   {post_id: 9, tag_id: 2},
   {post_id: 10, tag_id: 2},
   {post_id: 11, tag_id: 2},
-  {post_id: 12, tag_id: 8},
-  {post_id: 13, tag_id: 8},
-  {post_id: 14, tag_id: 3},
-  {post_id: 15, tag_id: 3},
-  {post_id: 16, tag_id: 8},
-  {post_id: 17, tag_id: 8},
-  {post_id: 18, tag_id: 1},
+  {post_id: 12, tag_id: 8}
 
 ])
 
 Comment.create!([
   {text: "Dope", post_id: 1, user_id: 1},
-  {text: "Diggin it", post_id: 1, user_id: 1},
-  {text: "Too good", post_id: 2, user_id: 1},
-  {text: "Confirmed, they are real", post_id: 17, user_id: 6},
-  {text: "Great find, man", post_id: 17, user_id: 7},
-  {text: "Now THAT is why you're a TA!", post_id: 17, user_id: 8}
+  {text: "Diggin it", post_id: 1, user_id: 1}
 
 ])
 
@@ -126,22 +103,11 @@ Like.create!([
   {user_id: 2, post_id: 3},
   {user_id: 2, post_id: 4},
   {user_id: 2, post_id: 5},
-  {user_id: 3, post_id: 6},
-  {user_id: 3, post_id: 7},
-  {user_id: 4, post_id: 8},
+  {user_id: 1, post_id: 6},
+  {user_id: 1, post_id: 7},
+  {user_id: 1, post_id: 8},
   {user_id: 2, post_id: 9},
-  {user_id: 5, post_id: 10},
+  {user_id: 1, post_id: 10},
   {user_id: 2, post_id: 11},
-  {user_id: 6, post_id: 12},
-  {user_id: 3, post_id: 13},
-  {user_id: 2, post_id: 14},
-  {user_id: 7, post_id: 15},
-  {user_id: 2, post_id: 16},
-  {user_id: 1, post_id: 17},
-  {user_id: 2, post_id: 17},
-  {user_id: 3, post_id: 17},
-  {user_id: 4, post_id: 17},
-  {user_id: 5, post_id: 17}
-
-
+  {user_id: 1, post_id: 12}
 ])

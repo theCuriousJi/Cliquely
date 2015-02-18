@@ -9,6 +9,7 @@ window.OurLinks = {
     view.render()
     Backbone.history.start();
   }
+  
 };
 
 $(document).ready(function(){
