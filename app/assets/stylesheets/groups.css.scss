@@ -1,3 +1,30 @@
 // Place all the styles related to the groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#my-groups a{
+  float:left
+}
+
+#join-toggle{
+  margin-left: 5px;
+  margin-top: 2px;
+  line-height: 10px;
+  height: 15px
+}
+
+.group-desc{
+  list-style-type: disc;
+  font-size: 10px
+}
+
+.group-show span{
+  font-size: 12px
+}
+
+.group-show ul a{
+  font-size: 12px
+}
+
+#group-chat{
+  margin-top: 0px
+}

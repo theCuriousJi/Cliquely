@@ -3,15 +3,10 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
 
   initialize: function () {
 
-    // this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(OurLinks.posts, 'remove', this.removePost);
-    // this.listenTo(OurLinks.posts, 'add', this.filterPosts);
     this.listenTo(OurLinks.posts, 'refresh', this.resestFeed);
-    // this.listenTo(OurLinks.posts, 'add', this.filterPosts);
-    // this.listenTo(OurLinks.posts, 'add', this.render);
     this.listenTo(this.collection, 'reset', this.resetFeed);
     this.listenTo(OurLinks.posts, 'sync', this.filterPosts);
-    // this.listenTo(OurLinks.filteredPosts, 'sync', this.filterPosts);
     this.listenTo(OurLinks.filteredPosts, 'sync', this.resetFeed);
     this.listenTo(OurLinks.util, 'change:displayedGroupIds', this.filterPosts);
     this.listenTo(OurLinks.util, 'change:displayedTagIds', this.filterPosts);

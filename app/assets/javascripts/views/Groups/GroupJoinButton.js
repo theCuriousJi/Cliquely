@@ -2,7 +2,7 @@ OurLinks.Views.GroupJoinButton = Backbone.View.extend({
   template: JST['groups/join-button'],
 
   events: {
-    'click .join-toggle': "joinOrLeave"
+    'click #join-toggle': "joinOrLeave"
   },
 
   initialize: function () {

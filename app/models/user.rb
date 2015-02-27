@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   dependent: :destroy
 
   has_many :comments
+  has_many :group_messages
 
   has_many :liked_posts, through: :likes, source: :post
 
@@ -47,6 +48,11 @@ class User < ActiveRecord::Base
   def is_member_of?(group)
     member = group.memberships.where(user_id: self.id)
     member.empty? ? false : true
+  end
+
+  def is_first_member_of?(group)
+    member_id = group.memberships.first.user_id
+    member_id == self.id ? member_id : nil
   end
 
   def likes?(post)

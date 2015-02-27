@@ -1,0 +1,49 @@
+// Place all the styles related to the group_messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.group-messages{
+  margin-bottom: 0
+}
+
+#group-message-info{
+  font-size: 8px;
+}
+
+.group-message-info{
+  float:left;
+  height: 16px
+}
+
+#group-message-submit{
+float: right;
+margin-right:17%;
+line-height: 0px;
+}
+
+#group-message-delete{
+  font-size: 8px;
+  padding-left: 10px
+}
+#group-message-delete:hover{
+  cursor: pointer
+}
+
+
+// .widget .panel-body { padding: 0px;  }
+// .widget .panel-body { border: none;  }
+// .widget .comments { margin-bottom: 0; }
+// .widget .panel-title { display:inline }
+// .widget .label-info { float: right; }
+// .widget li.list-group-item {
+//   border-radius: 5px;
+//   margin-left: -40px;
+//   padding: 5px 0px 0px 5px;
+//   border: 0;border-top: 1px solid #ddd;
+//   }
+// .widget li.list-group-item:hover {
+//   background-color: whitesmoke;
+//   }
+// .widget .mic-info { color: #666666;font-size: 11px; }
+// .widget .action { margin-top:5px; }
+// .widget .comment-text { font-size: 12px; }
+// .widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }

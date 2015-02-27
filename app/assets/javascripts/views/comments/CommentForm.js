@@ -21,7 +21,7 @@ OurLinks.Views.CommentForm = Backbone.View.extend({
     comment.save({}, {
       success: function () {
         that.collection.add(comment)
-        $('textarea').val('')
+        $('textarea').val('Write a comment...')
       }
     })
 

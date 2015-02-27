@@ -2,8 +2,8 @@
 <%if !current_user%>
 <div class="container">
   <header>
-    <h1 id="logo">OurLinks</h1>
-    <h4 id="description">Share, sort, and save your favorite content on the web</h4>
+    <h1 id="logo">Cliquely.io</h1>
+    <h4 id="mvp">Share, sort, and save your favorite content on the web</h4>
   </header>
   <div class="group"></div>
   <div id="top-bar"></div>
@@ -31,7 +31,7 @@
     <span class="sign-in-link"><%=link_to "Not Signed Up? Sign Up Here", new_user_url%></span>
     <script>
       $('#guest_signup').on('click', function () {
-        $('#email').val('guest');
+        $('#email').val('guest1@gmail.com');
         $('#password').val('123123');
         $('#submit').trigger('click')
       })

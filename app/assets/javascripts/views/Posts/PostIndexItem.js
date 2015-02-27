@@ -12,7 +12,8 @@ OurLinks.Views.PostIndexItem = Backbone.CompositeView.extend({
     this.model.comments().each(function (comment) {
       that.addComment(comment)
     })
-    this.listenTo(this.model.comments(), 'add', this.addComment)
+    this.listenTo(this.model.comments(), 'add', this.addComment),
+    this.listenTo(this.model.comments(), 'remove', this.removeComment)
   },
 
 
@@ -28,6 +29,24 @@ OurLinks.Views.PostIndexItem = Backbone.CompositeView.extend({
   addComment: function (comment) {
       var view = new OurLinks.Views.CommentShow({ model: comment });
       this.addSubview('.comments', view);
+  },
+
+  removeComment: function(model) {
+    var mySelector;
+    var mySubview;
+
+    var that = this;
+    _(this.subviews()).each(function (subviews, selector) {
+      _(subviews).each(function (subview) {
+        if(model === subview.model){
+          mySelector = selector;
+          mySubview = subview;
+        }
+      });
+    });
+
+    that.removeSubview(mySelector, mySubview);
+
   },
 
   deletePost: function () {

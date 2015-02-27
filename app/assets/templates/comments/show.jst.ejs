@@ -5,11 +5,18 @@
         <div class="comment-text">
           <%=comment.escape('text') %>
         </div>
+
         <div>
-            <div class="mic-info">
+            <div class="comment-info">
                 <span id="comment-info">Posted by </span><a href="#/users/<%=comment.get('user_id')%>"><%=comment.get('user_fname')%> <%=comment.get('user_lname')%></a>
                 <span id="comment-info" href="#"><%=comment.get('time_ago')%> ago</span>
             </div>
+            <% if(comment.get('user_id') === OurLinks.currentUserId) { %>
+              <a id="comment-delete">
+                Delete Comment
+              </a>
+              <% }%>
         </div>
+
       </div>
   </div>

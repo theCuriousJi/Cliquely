@@ -1,92 +1,31 @@
 // // Navbar
-//
-// .root-forms{
-//
-// }
-//
-// #main-nav > div > div.navbar-header{
-//   line-height: 30px
-// }
-//
-//
-// #main-nav > div > div.navbar-header > a{
-//   font-family: 'Permanent Marker', 'cursive';
-//   // margin-top: 10px
-//   font-size: 28px;
-// }
-//
-// #bs-example-navbar-collapse-1 > ul > li.dropdown > a {
-//   height: 20px
-// }
-//
+
 #main-nav {
   height: 40px;
   position:relative;
   position: fixed
 }
-//
-// .btn {
-//   line-height: normal;
-// }
-//
-//
-//
-//
-//
-// .navbar{
-//    position: relative;
-//    height: 43px
-//  }
-//
-// .title{
-//   padding-left: 10px
-// }
-//
-// .nav-bar > a{
-//   padding-left: 40px;
-//   float: right;
-//   font-weight: bold
-// }
-//
-// .nav-bar{
-//   margin-right: 15px
-// }
-//
-// .container{
-//   margin: 0
-// }
-//
-// .logged-in{
-//   float: right;
-// }
-//
-// .navbar-form{
-//   // height: 30px
-// }
-//
-// #bs-example-navbar-collapse-1 > form {
-//   position: absolute;
-//   right: 150px
-// }
-//
-//
-// #bs-example-navbar-collapse-1 > form > div > input{
-//   height: 10px
-// }
-// input[type="submit"] {
-//   color: #98978B;
-// }
-//
-//
-//
-//
-// #my-groups{
-//   background-color: #9966FF;
-//   border: 1px solid #dfd7c9;
-//   border-radius: 5px;
-//
-// }
-//
-// ul{
-//   list-style-type: none
-// }
+
+#new-post-nav{
+  color: white
+}
+
+#dropdown{
+  color:white
+}
+
+#profile{
+  color:white
+}
+
+#new-post-nav:hover{
+  color: lightblue
+}
+
+#dropdown:hover{
+  color: lightblue
+}
+
+#profile:hover{
+  color: lightblue
+}

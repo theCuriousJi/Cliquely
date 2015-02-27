@@ -1,0 +1,21 @@
+<div class="row">
+      <div class="col-xs-12 col-md-12">
+        <!-- <div class="group-message-text"> -->
+      <div class="group-message-text">
+        <%=message.escape('text') %>
+      </div>
+
+      <div>
+          <div class="group-message-info">
+              <span id="group-message-info">Posted by </span><a href="#/users/<%=message.get('user_id')%>"><%=message.get('user_fname')%> <%=message.get('user_lname')%></a>
+              <span id="group-message-info" href="#"><%=message.get('time_ago')%> ago</span>
+          </div>
+          <% if(message.get('user_id') === OurLinks.currentUserId) { %>
+            <a id="group-message-delete">
+              Delete Message
+            </a>
+            <% }%>
+      </div>
+
+    </div>
+</div>

@@ -2,7 +2,7 @@ OurLinks.Views.Navbar = Backbone.CompositeView.extend({
   template: JST['navbar'],
 
   events: {
-    'click a#new-post': 'addPostForm',
+    'click a#new-post-nav': 'addPostForm',
     'click button.search': 'search',
     'click a#new-group': "addGroupForm",
   },

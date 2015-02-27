@@ -1,5 +1,4 @@
-class Api::
-  CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
 
@@ -15,6 +14,9 @@ class Api::
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    render json: 'deleted'
   end
 
   def show

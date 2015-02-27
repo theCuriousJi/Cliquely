@@ -14,6 +14,7 @@ json.array! @groups do |group|
  if current_user.is_member_of?(group)
     json.membership current_user.memberships.where(group_id: group.id).first.id
  end
+
 end
 
 # N+1 queries!

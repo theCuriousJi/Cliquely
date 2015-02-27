@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :tags
     resources :likes
     resources :comments
+    resources :group_messages
   end
 
 end

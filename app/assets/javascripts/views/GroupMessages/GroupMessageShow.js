@@ -1,5 +1,5 @@
-OurLinks.Views.CommentShow = Backbone.View.extend({
-  template: JST["comments/show"],
+OurLinks.Views.GroupMessageShow = Backbone.View.extend({
+  template: JST["group_messages/show"],
   tagName: 'li',
   initialize: function () {
     this.$el.addClass('list-group-item');
@@ -7,15 +7,16 @@ OurLinks.Views.CommentShow = Backbone.View.extend({
   },
 
   events: {
-    "click a#comment-delete": "destroy"
+    "click a#group-message-delete": "destroy"
   },
 
   destroy: function () {
+    debugger
     this.model.destroy()
   },
 
   render: function () {
-    var content = this.template({comment: this.model});
+    var content = this.template({message: this.model});
     this.$el.html(content);
     return this;
   }

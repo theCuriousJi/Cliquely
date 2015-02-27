@@ -8,14 +8,25 @@ OurLinks.Models.Group = Backbone.Model.extend({
     return this._members;
   },
 
+  groupMessages: function () {
+    if(!this._groupMessages) {
+      this._groupMessages = new OurLinks.Collections.GroupMessages();
+    }
+    return this._groupMessages;
+  },
+
   parse: function (response) {
     if(response.members) {
       this.members().set(response.members, {parse: true});
       delete response.members
     }
 
-    if(response.membership) {
+    if(response.group_messages) {
+      this.groupMessages().set(response.group_messages, {parse: true});
+      delete response.group_messages
+    }
 
+    if(response.membership) {
       this.membership().set({ id: response.membership});
       delete response.membership
     }
@@ -30,6 +41,8 @@ OurLinks.Models.Group = Backbone.Model.extend({
     }
     return this._membership;
   }
+
+
 })
 
 
