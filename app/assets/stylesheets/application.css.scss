@@ -24,11 +24,17 @@
   //  background: image_url('http://2.bp.blogspot.com/_CI-kNUtWy3I/Sj6okeW4UeI/AAAAAAAAAKE/EPWmIexMAnA/s1600/DSC_0223_Gaurav_Nagpal.jpg');
   //  background: url('http://2.bp.blogspot.com/_CI-kNUtWy3I/Sj6okeW4UeI/AAAAAAAAAKE/EPWmIexMAnA/s1600/DSC_0223_Gaurav_Nagpal.jpg');
    background-color: #e9eaed;
-   height: 100%
+   height: 100%;
+  //  position:relative;
+   margin-bottom: 60px
    }
  @import "bootswatch/sandstone/bootswatch";
  // @import "base";
 
+html{
+  position: relative;
+  min-height: 100%
+}
 .navbar{
   background-color: #3A64AE;
   border: none
@@ -76,8 +82,8 @@ content: "";
 display: block;
 overflow: hidden;
 clear: both;
-
 }
+
 
 
 
@@ -262,8 +268,20 @@ footer {
     background-color: #f8f8f8;
     text-align: center;
     background-color: #3A64AE;
+    margin-top: 10px;
+    bottom:0;
+    width:100%;
+    // height:60px;   /* Height of the footer */
 }
 
 footer a {
   color: white
+}
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 70px;
 }

@@ -13,8 +13,8 @@
 }
 
 .group-desc{
-  list-style-type: disc;
-  font-size: 10px
+  font-size: 10px;
+  margin-left: -80px
 }
 
 .group-show span{
@@ -27,4 +27,8 @@
 
 #group-chat{
   margin-top: 0px
+}
+
+.group-members{
+  padding-left:40px
 }

@@ -1,6 +1,5 @@
 /*Feed
 ____________________________________________*/
-
 #main{
   margin-top: 60px;
 }
@@ -16,8 +15,6 @@ border: 1px solid rgba(0,0,0,.1);
 background: #e0e1e2;
 box-shadow: 3px 3px 3px #888888
 }
-
-
 
 .posts{
   margin-right: 5%;
@@ -60,8 +57,6 @@ box-shadow: 3px 3px 3px #888888
 
   webkit-transition:background-color 2s, -webkit-transform 2s;
    transition:background-color 2s, transform 2s;
-
-
 }
 
 .new-post:hover {
@@ -73,5 +68,26 @@ box-shadow: 3px 3px 3px #888888
   rgba(0,0,0,.03);
   background-color: #3A64AE;
   color: white
+}
 
+ul.groups {
+  padding-left:25px
+}
+ul.tags {
+  padding-left:25px
+}
+#user-groups{
+  padding-left:25px
+}
+
+#my-groups{
+  padding-left: 10px
+}
+
+#tags{
+  padding-left: 10px
+}
+
+.user-groups{
+  padding-left: 10px
 }

@@ -2,7 +2,7 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
   template: JST['posts/filtered-posts'],
 
   initialize: function () {
-
+    this.$el.css('padding-bottom', '10px')
     this.listenTo(OurLinks.posts, 'remove', this.removePost);
     this.listenTo(OurLinks.posts, 'refresh', this.resestFeed);
     this.listenTo(this.collection, 'reset', this.resetFeed);

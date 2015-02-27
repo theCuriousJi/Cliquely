@@ -18,8 +18,6 @@ and resets the filtered collection with the results of the filter
 
 To Dos:
 3) add gravatar img for users
-5) add time ago for comments
-6) fix comments alignment
 7) fix sign in / user links
 8) fix filters
 9) fix forms
