@@ -13,7 +13,9 @@
 
 <%= yield %>
 
+
 </body>
+
 <% if current_user %>
 <script>OurLinks.currentUserId = <%= current_user.id %></script>
 <%end%>

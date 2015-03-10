@@ -1,7 +1,7 @@
 User.create!([
-{fname: "Gaurav", lname: "Nagpal", email: "gauravnagpal19@gmail.com", password: "123123"},
-{fname: "Guest", lname: "User", email: "guest1@gmail.com", password: "123123"},
-{fname: "Sarah", lname: "Chia", email: "Barack@gmail.com", password: "123123"}
+  {fname: "Gaurav", lname: "Nagpal", email: "gauravnagpal19@gmail.com", password: "123123"},
+  {fname: "Sarah", lname: "Chia", email: "SarahChia@gmail.com", password: "123123"},
+  {fname: "Guest", lname: "User", email: "guest1@gmail.com", password: "123123"}
 ])
 
 Group.create!([
@@ -10,11 +10,12 @@ Group.create!([
   {title: "a/A", description: ""},
   {title: "Family", description: ""}
 ])
+
 GroupMembership.create!([
   {user_id: 1, group_id: 1},
   {user_id: 1, group_id: 2},
-  {user_id: 2, group_id: 1},
-  {user_id: 2, group_id: 2},
+  {user_id: 3, group_id: 1},
+  {user_id: 3, group_id: 2},
   {user_id: 1, group_id: 3}
 ])
 Post.create!([
@@ -38,7 +39,9 @@ Post.create!([
   {title: "ISIS Burns 8000 Rare Books and Manuscripts in Mosul", url: "https://finance.yahoo.com/news/isis-burns-8000-rare-books-030900856.html", description: "", user_id: 1},
   {title: "Lenovo caught installing adware on new computers", url: "http://thenextweb.com/insider/2015/02/19/lenovo-caught-installing-adware-new-computers/", description: "", user_id: 1},
   {title: "Saudi sentenced to death for abusing Islam", url: "http://www.emirates247.com/news/region/saudi-sentenced-to-death-for-abusing-islam-2015-02-23-1.581973", description: "", user_id: 1},
-  {title: "2015 NFL Mock Draft: Post-Combine Update", url: "http://bleacherreport.com/articles/2374619-2015-nfl-mock-draft-post-combine-update?utm_source=facebook.com&utm_medium=referral&utm_campaign=programming", description: "", user_id: 1}
+  {title: "2015 NFL Mock Draft: Post-Combine Update", url: "http://bleacherreport.com/articles/2374619-2015-nfl-mock-draft-post-combine-update?utm_source=facebook.com&utm_medium=referral&utm_campaign=programming", description: "", user_id: 1},
+  {title: "Great site for checking out new tracks", url: "http://22tracks.com/", description: "This site has some awesome playlists across all genres. Super cool", user_id: 2},
+  {title: "Great site for finding new music", url: "http://22tracks.com/", description: "This site is great if you're looking for a a rad playlist to jam to. All genres imaginable", user_id: 2}
 ])
 LinkMembership.create!([
   {post_id: 1, group_id: 1},
@@ -55,30 +58,29 @@ LinkMembership.create!([
   {post_id: 12, group_id: 3},
   {post_id: 13, group_id: 3},
   {post_id: 14, group_id: 1},
-  {post_id: 14, group_id: 2},
   {post_id: 15, group_id: 1},
-  {post_id: 15, group_id: 2},
   {post_id: 16, group_id: 1},
   {post_id: 17, group_id: 1},
   {post_id: 18, group_id: 1},
-  {post_id: 18, group_id: 2},
   {post_id: 19, group_id: 1},
   {post_id: 20, group_id: 2},
-  {post_id: 21, group_id: 1},
-  {post_id: 21, group_id: 2}
+  {post_id: 21, group_id: 2},
+  {post_id: 23, group_id: 1}
 ])
+
 Tag.create!([
-  {name: "Business"}, #1
-  {name: "Fashion"}, #2
-  {name: "Media"}, #3
-  {name: "News"}, #4
-  {name: "Op-Eds"},#5
-  {name: "Restaurants / Bars"}, #6
-  {name: "Sports"},#7
-  {name: "Tech"},#8
-  {name: "Useful Stuff"}, #9
-  {name: "Random"} #10
+  {name: "Business"},
+  {name: "Fashion"},
+  {name: "Media"},
+  {name: "News"},
+  {name: "Op-Eds"},
+  {name: "Restaurants / Bars"},
+  {name: "Sports"},
+  {name: "Tech"},
+  {name: "Useful Stuff"},
+  {name: "Random"}
 ])
+
 Tagging.create!([
   {post_id: 1, tag_id: 3},
   {post_id: 2, tag_id: 3},
@@ -104,13 +106,19 @@ Tagging.create!([
   {post_id: 18, tag_id: 4},
   {post_id: 19, tag_id: 4},
   {post_id: 20, tag_id: 4},
-  {post_id: 21, tag_id: 7}
+  {post_id: 21, tag_id: 7},
+  {post_id: 22, tag_id: 2},
+  {post_id: 23, tag_id: 3}
 ])
+
 Comment.create!([
   {text: "Dope", post_id: 1, user_id: 1},
   {text: "Diggin it", post_id: 1, user_id: 1},
-  {text: "I just want to give her all the stars", post_id: 7, user_id: 3}
+  {text: "I just want to give her all the stars", post_id: 7, user_id: 3},
+  {text: "This track is great too. \r\nhttps://www.youtube.com/watch?v=Coyi5HAkuYo", post_id: 5, user_id: 1},
+  {text: "hey", post_id: 23, user_id: 2}
 ])
+
 
 Like.create!([
   {user_id: 1, post_id: 1},
@@ -118,16 +126,7 @@ Like.create!([
   {user_id: 1, post_id: 3},
   {user_id: 1, post_id: 4},
   {user_id: 1, post_id: 5},
-  {user_id: 1, post_id: 6},
-  {user_id: 1, post_id: 7},
-  {user_id: 1, post_id: 8},
-  {user_id: 2, post_id: 1},
   {user_id: 2, post_id: 2},
   {user_id: 2, post_id: 3},
-  {user_id: 2, post_id: 4},
-  {user_id: 2, post_id: 5},
-  {user_id: 2, post_id: 9},
-  {user_id: 1, post_id: 10},
-  {user_id: 2, post_id: 11},
-  {user_id: 1, post_id: 12}
+  {user_id: 2, post_id: 4}
 ])
