@@ -70,6 +70,7 @@ OurLinks.Routers.Router = Backbone.Router.extend({
     this.currentView && this.currentView.remove();
     this.currentView = view;
     this.$rootEl.html(view.render().$el);
+    OurLinks.event_bus.trigger('closeTutorial')
   },
 
   // _toggleTutorialAuto: function () {

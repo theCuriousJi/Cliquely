@@ -5,6 +5,13 @@ json.array! @posts do |post|
  json.user_fname post.user.fname
  json.user_lname post.user.lname
  json.user_id post.user.id
+
+ json.groups  current_user.groups.includes(:memberships) do |group|
+   json.extract! group, :id, :title, :description
+
+   json.membership group.memberships.where("user_id = ?", current_user.id).first.id
+ end
+
  json.comments post.comments do |comment|
    json.extract! comment, *comment.attributes.keys
    json.time_ago time_ago_in_words(comment.created_at)

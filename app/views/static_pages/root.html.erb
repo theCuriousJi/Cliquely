@@ -1,7 +1,11 @@
 <nav id="main-nav"class="navbar navbar-default navbar-fixed-top"></nav>
 <div class="backdrop">
-  <div id="main" class="current-user-data" data-tutorial-on="<%= @current_user.fname == 'Guest' %>">
+  <div id="main" class="current-user-data"
+  data-tutorial-on="<%= @current_user.fname == 'Guest' %>"
+  data-user-name="<%= @current_user.fname%>">
   </div>
+
+
 </div>
 <script>$(OurLinks.initialize);</script>
 

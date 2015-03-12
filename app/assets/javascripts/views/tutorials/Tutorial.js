@@ -10,7 +10,7 @@ OurLinks.Views.Tutorial = Backbone.View.extend({
     this.generateTour();
     this.startTour()
     this.listenTo(OurLinks.event_bus, "triggerTutorial", this.startTour);
-    // this.listenTo(SelFeed.Events.event_bus, "closeTutorial", this.tour.hide);
+    this.listenTo(OurLinks.event_bus, "closeTutorial", this.tour.hide);
   },
 
 
@@ -56,7 +56,7 @@ OurLinks.Views.Tutorial = Backbone.View.extend({
 generateTour: function () {
   this.tour.addStep({
     title: "Welcome to Cliquely!",
-    text: "Cliquely is a link & web content sharing platform, that allows users to post content to discrete groups of friends. Users can like and comment on posted content from groups they are a part of. <br><br> When your Facebook newsfeed is overcrowded, Cliquely gives you an outlet. ",
+    text: "Cliquely is a link & web content sharing platform, that allows users to post content to discrete groups of friends. Much like Facebook, users can like and comment on posted content. <br><br> However, users must belong to a group in order to see or post content to its members, resulting in a more focused, less cluttered news feed. <br><br> When your Facebook newsfeed is overcrowded, Cliquely gives you an outlet to discuss and share interesting content. ",
     buttons: [
       { text: "Next", action: this.nextAndBookmark.bind(this) }
     ]
@@ -73,7 +73,7 @@ generateTour: function () {
 
   this.tour.addStep({
     title: "Main News Feed",
-    text: "Upon logging into Cliquely, you will find your primary news feed, which consists of links posted to all of the groups to which you belong",
+    text: "Upon logging into Cliquely, you will find your primary news feed, which consists of links posted to all of the groups to which you belong. <br><br> You can also delete a post by clicking the <i class=\"fa fa-trash-o\"></i> icon, if you were the one who posted it.",
     attachTo: ".posts",
     tetherOptions: {
       attachment: "top right",
@@ -88,7 +88,7 @@ generateTour: function () {
 
   this.tour.addStep({
     title: "Filter your main feed",
-    text: "On this side panel, you can easily filter your news feed to show only certain categories of content or to show posts shared by a certain group.",
+    text: "On this side panel, you can easily filter your news feed to show only certain categories of content or to show posts shared by a certain group by clicking on the various filters.",
     attachTo: "#tags",
     scrollTo: false,
     tetherOptions: {
@@ -108,7 +108,7 @@ generateTour: function () {
     scrollTo: false,
     tetherOptions: {
       attachment: "top right",
-      targetAttachment: "top right"
+      targetAttachment: "middle left"
     },
     buttons: [
       { text: "Back", action: this.backAndBookmark.bind(this) },
@@ -163,7 +163,7 @@ generateTour: function () {
 
   this.tour.addStep({
     title: "Search for Posts",
-    text: "Search for old or new posts. Try searching for 'music'",
+    text: "Search for old or new posts. Try searching for 'music' or 'Larry David'.",
     attachTo: ".query",
     scrollTo: false,
     tetherOptions: {
@@ -178,7 +178,7 @@ generateTour: function () {
 
   this.tour.addStep({
     title: "Sign Up!",
-    text: "Cliquely is an alternative to the overflow of information you get on Facebook and most RSS feeds. Let your closest friends share the best of the web with you and do the same with them! <br> <br> <a href='users/new'> Sign Up!</a>",
+    text: "Cliquely is an alternative to the overflow of information you get on Facebook and most RSS feeds. <br><br> Share the best of the web with your closest friends! <br> <br> <a href='users/new'> Sign Up!</a>",
     buttons: [
       { text: "Close", action: this.nextAndBookmark.bind(this) }
     ]

@@ -15,6 +15,18 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
     OurLinks.filteredPosts = new OurLinks.Collections.Posts();
     this.addFilters();
     this.addPostsView();
+
+    this.listenTo(this.groups, 'sync', this.render);
+    this.listenTo(this.groups, 'add', this.addGroup);
+
+    this.groups.each(function (group) {
+      this.addGroup(group)
+    }.bind(this))
+  },
+
+  addGroup: function (group) {
+    var view = new OurLinks.Views.GroupIndexItem({model: group});
+    this.addSubview('.user-groups', view)
   },
 
   events: {
@@ -63,7 +75,6 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
     this.$el.html(content);
     // this.tutorialOn && OurLinks.Events.event_bus.trigger("triggerTutorial");
     // that.tutorialAuto && OurLinks.Events.event_bus.trigger("triggerTutorial");
-    debugger
     this.tutorialOn && OurLinks.util.get('tourStatus') && this.addTutorial();
     this.attachSubviews();
     return this;

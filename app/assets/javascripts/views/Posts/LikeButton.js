@@ -18,6 +18,7 @@ OurLinks.Views.LikeButton = Backbone.CompositeView.extend({
   },
 
   likeOrUnlike: function () {
+    debugger
     var that = this;
     if(this.model.isNew()) {
       this.disable()

@@ -2,7 +2,7 @@
 OurLinks.Models.LikeCount = Backbone.Model.extend({
 
     defaults: {
-      likeCount: [0]
+      likeCount: 0
     }
 
 })

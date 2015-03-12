@@ -1,6 +1,10 @@
 OurLinks.Views.Navbar = Backbone.CompositeView.extend({
   template: JST['navbar'],
 
+  initialize: function () {
+    this.user = $(".current-user-data").data("user-name");
+  },
+
   events: {
     'click a#new-post-nav': 'addPostForm',
     'click button.search': 'search',
@@ -32,7 +36,7 @@ OurLinks.Views.Navbar = Backbone.CompositeView.extend({
 
 
   render: function () {
-    var content = this.template();
+    var content = this.template({user: this.user});
     this.$el.html(content);
     this.attachSubviews()
     return this;
