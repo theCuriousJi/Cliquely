@@ -6,9 +6,12 @@ OurLinks.Models.Util = Backbone.Model.extend({
 
     displayedTagIds: [],
     tagIds: [],
-    allTagsShown: false
+    allTagsShown: false,
+    tourStatus: true,
 
   },
+
+
 
   replaceGroupId: function(array) {
     var groupIds = _.clone(this.get('displayedGroupIds'));

@@ -18,7 +18,7 @@ OurLinks.Views.PostIndexItem = Backbone.CompositeView.extend({
 
 
   events: {
-    'click .delete-button': 'deletePost'
+    'click #delete-post': 'deletePost'
   },
 
   addCommentForm: function () {

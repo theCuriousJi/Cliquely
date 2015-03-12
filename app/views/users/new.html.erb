@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 
 
 <%if !current_user%>
@@ -20,4 +20,77 @@
 
 </form>
 <%end%>
+</div> -->
+
+
+
+<%if !current_user%>
+<div class="container">
+  <header>
+    <h1 id="logo">Cliquely.io</h1>
+    <h4 id="mvp">Share, sort, and save your favorite content on the web</h4>
+  </header>
+  <div class="group"></div>
+  <div id="top-bar"></div>
+
+    <!-- <div class="landing"> -->
+      <div id="wrap" class="group">
+
+    <div class="group" id="sign-up">
+
+      <h1 class="log-in-title">Sign Up</h1>
+      <form action="<%=users_url%>" method="post">
+      <h4>First Name</h4>
+      <input type="text" name="user[fname]" value="<%=@user.fname%>">
+      <h4>Last Name</h4>
+      <input type="text" name="user[lname]" value="<%=@user.lname%>">
+      <h4>Email Address</h4>
+      <div class=form-group>
+        <input type="text" name="user[email]" value="<%=@user.email%>">
+      </div>
+      <h4 >Password</h4>
+      <div class=form-group>
+        <input id="password" type="password" name="user[password]" value="">
+      </div>
+    <div >
+      <input id="submit" class="sign-up-btn btn btn-primary" type="submit" name="Submit" class="btn btn-primary">
+    </div>
+    </form>
+    <span class="sign-in-link"><%=link_to "Already Signed Up? Sign In Here", new_session_url%></span>
+  </div>
+  </div>
+  <!-- </div> -->
 </div>
+    <footer class="footer">
+       <div class="container">
+           <div class=" row">
+               <div class="col-lg-12">
+                   <ul class="list-inline">
+                       <li>
+                           <a href="#">Home</a>
+                       </li>
+                       <li class="footer-menu-divider">&sdot;</li>
+                       <li>
+                           <a href="https://www.linkedin.com/in/gauravnagpal19">About</a>
+                       </li>
+                       <li class="footer-menu-divider">&sdot;</li>
+                       <li>
+                           <a href="mailto:gauravnagpal19@gmail.com">Contact</a>
+                       </li>
+                   </ul>
+                   <p class="copyright text-muted small">Copyright &copy; Cliquely 2015. All Rights Reserved</p>
+               </div>
+           </div>
+       </div>
+    </footer>
+    <% else%>
+    <h1>Sign Out</h1>
+    <%=button_to "Sign Out", session_url, method: :delete%>
+  </div>
+  </div>
+  <!-- </div> -->
+</div>
+
+
+
+    <%end%>

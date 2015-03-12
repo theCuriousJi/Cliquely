@@ -1,0 +1,29 @@
+.tutorial-container {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 0;
+}
+
+.shepherd-step {
+  width: 330px;
+  text-align: center;
+  z-index: 1;
+}
+
+.shepherd-text > p {
+  font-family: 'Oxygen', sans-serif;;
+  font-weight: 300;
+  font-size: 14px !important;
+}
+
+.shepherd-step-infinite-scroll {
+  position: fixed !important;
+  right: 80px !important;
+  bottom: 20px !important;
+  transform: none !important;
+}
+
+.shepherd-step.shepherd-step-hidden {
+  z-index: 0 !important;
+}

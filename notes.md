@@ -18,7 +18,6 @@ and resets the filtered collection with the results of the filter
 
 To Dos:
 3) add gravatar img for users
-7) fix sign in / user links
 8) fix filters
 9) fix forms
 
@@ -32,23 +31,3 @@ Tag
 Tagging
 Comment
 Like
-
-
-
-
-Questions:
-1) On my GroupFilter on the home page, I have a listener on add events, after
-which I add subviews, and one on a sync, after which I render.  while the
-collection fetches, are add events being triggered.
-
-2) whats the deal with fetch - Note that fetch should not be used to populate collections on page load — all models needed at load time should already be bootstrapped in to place. fetch is intended for lazily-loading models for interfaces that are not needed immediately: for example, documents with collections of notes that may be toggled open and closed.
-
-1)add filters prop to collections
-collection
-filters: {groupId: [],}
-
-2) fetchFiltered method in collection
-  -call this.fetch({data: this.filters})
-
-inside controller, params will include filters
-based on filters, build up a bunch of where conditions

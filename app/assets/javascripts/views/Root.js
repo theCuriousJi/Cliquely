@@ -1,20 +1,17 @@
 OurLinks.Views.Root = Backbone.CompositeView.extend({
   template: JST['root'],
 
-  initialize: function () {
-    // OurLinks.filters = {'group_id': []};
+  initialize: function (options) {
     OurLinks.util.set({'displayedGroupIds': []});
     OurLinks.util.set({'displayedTagIds': []});
-    // I populate the filters as the groups are added to the page
+    this.tutorialOn = options.tutorialOn
     this.groups = OurLinks.currentUser.groups();
     this.groups.fetch({
       url: 'api/users/'+OurLinks.currentUserId+'/groups'});
       // data: {
       //   search_term: "whatever"
       // }
-
     this.tags = OurLinks.tags;
-    // this.listenTo(this.groups, 'sync', this.addGroupsView());
     OurLinks.filteredPosts = new OurLinks.Collections.Posts();
     this.addFilters();
     this.addPostsView();
@@ -22,7 +19,7 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
 
   events: {
     'click a.new-group': "addGroupForm",
-    'click a#new-post': "addPostForm",
+    'click a#new-post': "addPostForm"
   },
 
   resetPosts: function () {
@@ -56,9 +53,18 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
     this.addSubview('ul.tags', tagFilterView);
   },
 
+  addTutorial: function () {
+    var tutorialView = new OurLinks.Views.Tutorial()
+    this.addSubview(".tutorial-container", tutorialView);
+  },
+
   render: function () {
     var content = this.template();
     this.$el.html(content);
+    // this.tutorialOn && OurLinks.Events.event_bus.trigger("triggerTutorial");
+    // that.tutorialAuto && OurLinks.Events.event_bus.trigger("triggerTutorial");
+    debugger
+    this.tutorialOn && OurLinks.util.get('tourStatus') && this.addTutorial();
     this.attachSubviews();
     return this;
   }

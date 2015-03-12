@@ -18,6 +18,7 @@
 //= require bootstrap
 //= require jquery.serializejson.min
 //= require our_links
+//= require shepherd.min
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

@@ -4,6 +4,7 @@ OurLinks.Routers.Router = Backbone.Router.extend({
     this.collection = OurLinks.posts;
     this.groups = OurLinks.groups;
     this.users = OurLinks.users;
+    this.tutorialOn = $(".current-user-data").data("tutorial-on");
   },
 
   routes: {
@@ -17,11 +18,9 @@ OurLinks.Routers.Router = Backbone.Router.extend({
 
   root: function () {
     OurLinks.posts.fetch();
-    // OurLinks.posts.sort();
     OurLinks.tags.fetch();
-    // OurLinks.groups.fetch();
     OurLinks.currentUser = this.users.getOrFetch(OurLinks.currentUserId);
-    var rootView = new OurLinks.Views.Root();
+    var rootView = new OurLinks.Views.Root({tutorialOn: this.tutorialOn});
     this._swapView(rootView)
   },
 
@@ -70,7 +69,15 @@ OurLinks.Routers.Router = Backbone.Router.extend({
   _swapView: function (view) {
     this.currentView && this.currentView.remove();
     this.currentView = view;
-    this.$rootEl.html(view.render().$el)
-  }
+    this.$rootEl.html(view.render().$el);
+  },
+
+  // _toggleTutorialAuto: function () {
+  // if (this.tutorialOn) {
+  //   this.tutorialAuto = this.tutorialOn;
+  //   this.listenTo(OurLinks.Events.event_bus, "toggleTutorialAuto", function (boolean) {
+  //     this.tutorialAuto = boolean;
+  //   });
+  // }}
 
 })

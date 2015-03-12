@@ -44,11 +44,9 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
 
   filterPosts: function () {
       results = OurLinks.posts.filter(function (post) {
-        // debugger
         return (_.intersection(OurLinks.util.get('displayedGroupIds'), post.get('group_ids')).length > 0 &&
         _.intersection(OurLinks.util.get('displayedTagIds'), post.get('tag_ids')).length > 0)
     })
-    // debugger
 
     // this.collection.fetch({
     //   data: { group_ids: [1, 2, 3] }

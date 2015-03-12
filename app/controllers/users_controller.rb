@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :redirect_if_logged_in
+  # before_action :redirect_if_logged_in
 
   def create
     @user = User.new(user_params)
@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    sign_out! if current_user
     @user = User.new
     render :new
   end

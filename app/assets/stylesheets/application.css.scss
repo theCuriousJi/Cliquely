@@ -13,6 +13,7 @@
  *= require jquery.svg.css
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
  $navbar-height: 40px;
@@ -35,6 +36,8 @@ html{
   position: relative;
   min-height: 100%
 }
+
+
 .navbar{
   background-color: #3A64AE;
   border: none
@@ -156,39 +159,39 @@ font-size: 16px;
     position: relative;
     top: 10px;
   }
+
+  #sign-up{
+    border-radius: 5px;
+    width: 600px;
+    height: 425px;
+    margin-left: 50%;
+    margin-top: 15%;
+    padding: 25px;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 5px;
+    border: black thin solid;
+    box-shadow: 2px 2px 2px lightgrey
+    }
+
+    .sign-up-btn{
+      width: 119px;
+    }
+
+    .sign-in-link{
+      position: relative;
+      top: 10px;
+    }
+
 // _____________________________________
 body{
-  font-family: 'ff-angie-web-pro', 'freight-sans-pro', Verdana, Geneva, sans-serif;
-  // background-color: #2b3e50;
-  /*background-image:  url("space-wallpaper-1920x1080-for-desktop-hd-wallpapers-aduphotocom-abstract-landscape-images-1920x1080-wallpaper.jpg");*/
+  font-family: 'Oxygen', sans-serif;
 }
 
 ul{
 
   list-style-type: none
 }
-
-
-// h2.title{
-//     font-family: 'Permanent Marker', 'cursive';
-//     // -webkit-transition-duration: 4s;
-//     // -moz-transition-duration: 4s;
-//     // -o-transition-duration: 4s;
-//     // transition-duration: 4s;
-//     //
-//     // -webkit-transition-property: -webkit-transform;
-//     // -moz-transition-property: -moz-transform;
-//     // -o-transition-property: -o-transform;
-//     // transition-property: transform;
-//
-//     // overflow:hidden
-//   }
-// h2.title:hover {
-// // color: green;
-// // -webkit-transform:rotate(360deg);
-// //   -moz-transform:rotate(360deg);
-// //   -o-transform:rotate(360deg);
-// }
 
 a {
   color: #297DC2
