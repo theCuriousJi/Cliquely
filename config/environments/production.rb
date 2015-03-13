@@ -48,7 +48,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   # FIX ATTEMPT
-  config.assets.initialize_on_precompile = false
+  # config.assets.initialize_on_precompile = false
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
