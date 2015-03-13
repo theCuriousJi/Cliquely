@@ -62,7 +62,9 @@ header{
   top: 50px;
 }
 
-.title{font-family: 'Satisfy', 'cursive';}
+.title{
+  font-family: 'Satisfy', 'cursive';
+  }
 
 #top-bar{
   z-index: -1;
@@ -106,7 +108,8 @@ clear: both;
   display: block;
   }
 
-h1#logo{ font-family: 'Satisfy', 'cursive';
+h1#logo{
+  font-family: 'Satisfy', 'cursive';
   margin-left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -130,7 +133,7 @@ font-size: 16px;
 }
 
 .log-in-title{
-  font-family: 'Satisfy', 'cursive';
+  font-family: 'Satisfy', '/cursive';
   position: relative;
   bottom: 20px;
   font-weight: bold;
