@@ -1,6 +1,11 @@
 #delete-box:hover{
   cursor: pointer;
-  background-color: #65d165;
+  background-color: lightgrey;
+}
+
+#delete-box{
+  webkit-transition:background-color 1s, -webkit-transform 1s;
+   transition:background-color 1s, transform 1s;
 }
 
 .post-form-list{

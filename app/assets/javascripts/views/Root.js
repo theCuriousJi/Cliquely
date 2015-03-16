@@ -58,7 +58,6 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
   },
 
   addTutorial: function () {
-    debugger
     var tutorialView = new OurLinks.Views.Tutorial()
     this.addSubview(".tutorial-container", tutorialView);
   },

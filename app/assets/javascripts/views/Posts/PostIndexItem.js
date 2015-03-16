@@ -49,8 +49,9 @@ OurLinks.Views.PostIndexItem = Backbone.CompositeView.extend({
 
   },
 
-  deletePost: function () {
+  deletePost: function (model) {
     this.model.destroy();
+    OurLinks.posts.remove(this.model)
   },
 
   addLikeButton: function () {

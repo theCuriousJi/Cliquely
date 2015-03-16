@@ -25,12 +25,15 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
   },
 
   removePost: function (model) {
-    if(this.subviews().length > 0){var mySelector;
+    debugger
+    if(this.subviews('#feed').length > 0){
+    var mySelector;
     var mySubview;
     var that = this;
     _(this.subviews()).each(function (subviews, selector) {
       _(subviews).each(function (subview) {
         if(model === subview.model){
+          debugger
           mySelector = selector;
           mySubview = subview;
         }

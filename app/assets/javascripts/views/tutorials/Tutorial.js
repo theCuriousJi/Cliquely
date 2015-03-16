@@ -10,13 +10,7 @@ OurLinks.Views.Tutorial = Backbone.View.extend({
     this.generateTour();
     this.startTour()
     this.listenTo(OurLinks.event_bus, "triggerTutorial", this.startTour);
-    this.listenTo(OurLinks.event_bus, "closeTutorial", this.check);
     this.listenTo(OurLinks.event_bus, "closeTutorial", this.tour.hide);
-  },
-
-  check: function () {
-    debugger
-    console.log('hey');
   },
 
 
@@ -31,7 +25,6 @@ OurLinks.Views.Tutorial = Backbone.View.extend({
 
       this.listenTo(this.tour, "cancel", function () {
         this.tour.hide
-        // OurLinks.event_bus.trigger("toggleTutorialAuto", false);
         OurLinks.util.set('tourStatus', false)
       });
 
@@ -39,7 +32,7 @@ OurLinks.Views.Tutorial = Backbone.View.extend({
 
   startTour: function (event) {
     // if (event.type === "click") {
-    //   SelFeed.Events.event_bus.trigger("toggleTutorialAuto", true);
+    //   OurLinks.event_bus.trigger("toggleTutorialAuto", true);
     // }
     if (this.currentStepId) {
       OurLinks.util.set('tourStatus', true)
@@ -87,6 +80,21 @@ generateTour: function () {
       targetAttachment: "top left"
     },
     scrollTo: false,
+    buttons: [
+      { text: "Back", action: this.backAndBookmark.bind(this) },
+      { text: "Next", action: this.nextAndBookmark.bind(this) }
+    ]
+  });
+
+  this.tour.addStep({
+    title: "Home Page",
+    text: "Clicking this logo will take you to back your home feed.",
+    attachTo: ".title",
+    scrollTo: false,
+    tetherOptions: {
+      attachment: "top left",
+      targetAttachment: "bottom left"
+    },
     buttons: [
       { text: "Back", action: this.backAndBookmark.bind(this) },
       { text: "Next", action: this.nextAndBookmark.bind(this) }
@@ -190,14 +198,5 @@ generateTour: function () {
       { text: "Close", action: this.nextAndBookmark.bind(this) }
     ]
   });
-
-
-
-
 }
-
-
-
-
-
 })
