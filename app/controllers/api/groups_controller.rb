@@ -10,7 +10,7 @@ class Api::GroupsController < ApplicationController
       @group_membership.save!
       render :show
     else
-      render json: @post.errors.full_messages, status: :unprocessable_entity
+      render json: @group.errors.full_messages, status: :unprocessable_entity
     end
   end
 

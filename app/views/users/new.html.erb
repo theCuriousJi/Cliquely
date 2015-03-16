@@ -59,6 +59,14 @@
     <span class="sign-in-link"><%=link_to "Already Signed Up? Sign In Here", new_session_url%></span>
   </div>
   </div>
+
+  <div class="errors">
+    <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+    <span><%=error%><br></span>
+    <%end%>
+    <%end%>
+  </div>
   <!-- </div> -->
 </div>
     <footer class="footer">

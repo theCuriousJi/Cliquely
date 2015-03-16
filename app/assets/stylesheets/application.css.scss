@@ -93,17 +93,8 @@ clear: both;
 
 
 // Splash page
+// ------------------------------------------
 .landing{
-  // background: image_url('http://i.imgur.com/5JWKS04.jpg');
-  // -webkit-background-size: cover;
-  // -moz-background-size: cover;
-  // -o-background-size: cover;
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // height: 1000px;
-  // width: 100%;
-  // top: 0;
-  // position: absolute;
   padding-bottom: 0;
   display: block;
   }
@@ -150,20 +141,20 @@ font-size: 16px;
   border-radius: 5px;
   border: black thin solid;
   box-shadow: 2px 2px 2px lightgrey
-  }
+}
 
-  .sign-in-btn{
+.sign-in-btn{
     float:left;
     width: 119px;
     margin-left: 15%
-  }
+}
 
-  .sign-in-link{
+.sign-in-link{
     position: relative;
     top: 10px;
-  }
+}
 
-  #sign-up{
+#sign-up{
     border-radius: 5px;
     width: 600px;
     height: 465px;
@@ -175,16 +166,23 @@ font-size: 16px;
     border-radius: 5px;
     border: black thin solid;
     box-shadow: 2px 2px 2px lightgrey
-    }
+}
 
-    .sign-up-btn{
+.sign-up-btn{
       width: 119px;
-    }
+}
 
-    .sign-in-link{
-      position: relative;
-      top: 10px;
-    }
+.sign-in-link{
+  position: relative;
+  top: 10px;
+}
+.errors{
+  text-align: center;
+  color: red;
+  font-style: italic;
+  font-size: 16px
+}
+
 
 // _____________________________________
 body{

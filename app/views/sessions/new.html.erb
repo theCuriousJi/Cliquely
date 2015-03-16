@@ -38,6 +38,14 @@
     </script>
   </div>
   </div>
+
+  <div class="errors">
+    <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+    <span><%=error%></span>
+    <%end%>
+    <%end%>
+  </div>
   <!-- </div> -->
 </div>
     <footer class="footer">
