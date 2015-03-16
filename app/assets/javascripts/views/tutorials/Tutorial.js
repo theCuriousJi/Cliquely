@@ -10,7 +10,13 @@ OurLinks.Views.Tutorial = Backbone.View.extend({
     this.generateTour();
     this.startTour()
     this.listenTo(OurLinks.event_bus, "triggerTutorial", this.startTour);
+    this.listenTo(OurLinks.event_bus, "closeTutorial", this.check);
     this.listenTo(OurLinks.event_bus, "closeTutorial", this.tour.hide);
+  },
+
+  check: function () {
+    debugger
+    console.log('hey');
   },
 
 
@@ -28,6 +34,7 @@ OurLinks.Views.Tutorial = Backbone.View.extend({
         // OurLinks.event_bus.trigger("toggleTutorialAuto", false);
         OurLinks.util.set('tourStatus', false)
       });
+
     },
 
   startTour: function (event) {
@@ -88,7 +95,7 @@ generateTour: function () {
 
   this.tour.addStep({
     title: "Filter your main feed",
-    text: "On this side panel, you can easily filter your news feed to show only certain categories of content or to show posts shared by a certain group by clicking on the various filters.",
+    text: "On this side panel, you can easily filter your news feed to show only certain categories of content or to show posts shared by a certain group by clicking on the various filters. <br><br> Try filtering by a Fashion or Media!",
     attachTo: "#tags",
     scrollTo: false,
     tetherOptions: {

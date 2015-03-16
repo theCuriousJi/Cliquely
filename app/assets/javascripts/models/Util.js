@@ -16,7 +16,8 @@ OurLinks.Models.Util = Backbone.Model.extend({
   replaceGroupId: function(array) {
     var groupIds = _.clone(this.get('displayedGroupIds'));
     var groupIds = array;
-    OurLinks.util.set({'displayedGroupIds': groupIds})
+    OurLinks.util.set('displayedGroupIds', [])
+    OurLinks.util.set('displayedGroupIds', groupIds)
   },
   // addGroupId: function (integer) {
   //   var groupIds = _.clone(this.get('displayedGroupIds'));
@@ -47,7 +48,8 @@ OurLinks.Models.Util = Backbone.Model.extend({
   replaceTagId: function(array) {
     var tagIds = _.clone(this.get('displayedTagIds'));
     var tagIds = array;
-    OurLinks.util.set({'displayedTagIds': tagIds})
+    OurLinks.util.set('displayedTagIds', [])
+    OurLinks.util.set('displayedTagIds', tagIds)
   }
 })
 

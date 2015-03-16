@@ -24,13 +24,11 @@ OurLinks.Views.TagFilterButton = Backbone.View.extend({
   // },
 
   show: function (event) {
-    // debugger
     if(this.hidden) {
       if(this.allButton){
         OurLinks.util.set('allTagsShown', true)
         OurLinks.util.replaceTagId(OurLinks.util.get("tagIds"));
       } else{
-        // debugger;
         OurLinks.util.set('allTagsShown', false)
         OurLinks.util.replaceTagId([this.model.id]);
 

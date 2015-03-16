@@ -11,7 +11,6 @@ OurLinks.Views.GroupMessageShow = Backbone.View.extend({
   },
 
   destroy: function () {
-    debugger
     this.model.destroy()
   },
 

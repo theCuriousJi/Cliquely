@@ -21,7 +21,6 @@ OurLinks.Views.GroupFilter = Backbone.CompositeView.extend({
   },
 
   removeGroup: function (model) {
-
     var mySelector;
     var mySubview;
     var that = this;
@@ -37,39 +36,20 @@ OurLinks.Views.GroupFilter = Backbone.CompositeView.extend({
     that.removeSubview(mySelector, mySubview);
   },
 
-  // removeAllButton: function () {
-  //   debugger
-  //   var that = this;
-  //   _(this.subviews()).each(function (subviews, selector) {
-  //     _(subviews).each(function (subview) {
-  //       if('All' === subview.model.get('title')){
-  //         that.removeSubview(selector, subview);
-  //         return
-  //       }
-  //     });
-  //   });
-  //
-  //
-  // },
-
   setAllGroupIds: function () {
+
     OurLinks.util.replaceGroupId([])
     OurLinks.util.set('allGroupsShown', true)
     OurLinks.util.replaceGroupId(OurLinks.util.get('groupIds'))
   },
 
 
-
-
   addAllButton: function () {
-    // debugger;
-    // this.removeAllButton()
     OurLinks.util.replaceGroupId(OurLinks.util.get('groupIds'))
     var group = new OurLinks.Models.Group()
     group.set('title', 'All');
     var view = new OurLinks.Views.GroupFilterButton({model: group, allButton: true});
     this.addSubview('#my-groups', view);
-    // this.$('#my-groups').append(view.render().$el);
   },
 
   render: function () {

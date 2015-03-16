@@ -55,7 +55,7 @@ OurLinks.Routers.Router = Backbone.Router.extend({
 
   indexGroup: function () {
     this.groups.fetch();
-    var view = new OurLinks.Views.GroupIndex({collection: this.groups});
+    var view = new OurLinks.Views.GroupIndex({collection: this.groups, joinButton: true, title: true});
     this._swapView(view);
   },
 
@@ -67,10 +67,10 @@ OurLinks.Routers.Router = Backbone.Router.extend({
   },
 
   _swapView: function (view) {
+    OurLinks.event_bus.trigger('closeTutorial')
     this.currentView && this.currentView.remove();
     this.currentView = view;
     this.$rootEl.html(view.render().$el);
-    OurLinks.event_bus.trigger('closeTutorial')
   },
 
   // _toggleTutorialAuto: function () {

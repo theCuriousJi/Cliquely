@@ -20,18 +20,14 @@ OurLinks.Views.GroupJoinButton = Backbone.View.extend({
     event.preventDefault();
     var that = this;
     if(this.model.isNew()) { // not joined
-      // debugger
       this.setButtonTextAndDisable('Joining');
       this.model.save({}, {
       });
     } else { // joined
       this.setButtonTextAndDisable('Leaving');
-      // var groupId = this.model.get('group_id');
-      // debugger
       this.model.destroy({
         success: function () {
           delete that.model.attributes.id;
-          // that.model.set({group_id: groupId})
           that.render();
         },
         error: function () {

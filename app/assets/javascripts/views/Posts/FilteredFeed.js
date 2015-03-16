@@ -1,10 +1,9 @@
 OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
   template: JST['posts/filtered-posts'],
 
-  initialize: function () {
+  initialize: function (options) {
     this.$el.css('padding-bottom', '10px')
     this.listenTo(OurLinks.posts, 'remove', this.removePost);
-    this.listenTo(OurLinks.posts, 'refresh', this.resestFeed);
     this.listenTo(this.collection, 'reset', this.resetFeed);
     this.listenTo(OurLinks.posts, 'sync', this.filterPosts);
     this.listenTo(OurLinks.filteredPosts, 'sync', this.resetFeed);
@@ -26,9 +25,8 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
   },
 
   removePost: function (model) {
-    var mySelector;
+    if(this.subviews().length > 0){var mySelector;
     var mySubview;
-
     var that = this;
     _(this.subviews()).each(function (subviews, selector) {
       _(subviews).each(function (subview) {
@@ -40,6 +38,7 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
     });
 
     that.removeSubview(mySelector, mySubview);
+  }
   },
 
   filterPosts: function () {
@@ -62,7 +61,7 @@ OurLinks.Views.FilteredFeed = Backbone.CompositeView.extend({
   render: function () {
     var content = this.template({posts: this.collection});
     this.$el.html(content);
-    this.attachSubviews();
+    // this.attachSubviews();
     return this;
   }
 })

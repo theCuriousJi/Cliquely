@@ -14,6 +14,7 @@ class Api::PostsController < ApplicationController
 
   def index
     if params[:title]
+
       @posts = Post.joins(:link_memberships).where('link_memberships.group_id in (?)', current_user.group_ids)
       .where('posts.title LIKE ?', "%#{params[:title]}%")
       #query for matching posts

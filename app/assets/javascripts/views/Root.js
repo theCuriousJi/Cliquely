@@ -2,40 +2,32 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
   template: JST['root'],
 
   initialize: function (options) {
-    OurLinks.util.set({'displayedGroupIds': []});
-    OurLinks.util.set({'displayedTagIds': []});
+    OurLinks.util.set('displayedGroupIds', []);
+    OurLinks.util.set('displayedTagIds', []);
     this.tutorialOn = options.tutorialOn
     this.groups = OurLinks.currentUser.groups();
+
     this.groups.fetch({
       url: 'api/users/'+OurLinks.currentUserId+'/groups'});
-      // data: {
-      //   search_term: "whatever"
-      // }
+
     this.tags = OurLinks.tags;
     OurLinks.filteredPosts = new OurLinks.Collections.Posts();
+    // Creates a new empty collection of posts which can be filtered
     this.addFilters();
     this.addPostsView();
 
-    this.listenTo(this.groups, 'sync', this.render);
-    this.listenTo(this.groups, 'add', this.addGroup);
-
-    this.groups.each(function (group) {
-      this.addGroup(group)
-    }.bind(this))
+    this.listenTo(this.groups, 'sync', this.addGroupIndex);
+    // this.listenTo(this.groups, 'sync', this.addTutorial);
   },
 
-  addGroup: function (group) {
-    var view = new OurLinks.Views.GroupIndexItem({model: group});
+  addGroupIndex: function () {
+    var view = new OurLinks.Views.GroupIndex({collection: this.groups, joinButton: false});
     this.addSubview('.user-groups', view)
   },
 
   events: {
     'click a.new-group': "addGroupForm",
     'click a#new-post': "addPostForm"
-  },
-
-  resetPosts: function () {
-    OurLinks.filteredPosts.set(OurLinks.posts.models);
   },
 
   addGroupForm: function (event) {
@@ -66,6 +58,7 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
   },
 
   addTutorial: function () {
+    debugger
     var tutorialView = new OurLinks.Views.Tutorial()
     this.addSubview(".tutorial-container", tutorialView);
   },
@@ -73,8 +66,6 @@ OurLinks.Views.Root = Backbone.CompositeView.extend({
   render: function () {
     var content = this.template();
     this.$el.html(content);
-    // this.tutorialOn && OurLinks.Events.event_bus.trigger("triggerTutorial");
-    // that.tutorialAuto && OurLinks.Events.event_bus.trigger("triggerTutorial");
     this.tutorialOn && OurLinks.util.get('tourStatus') && this.addTutorial();
     this.attachSubviews();
     return this;

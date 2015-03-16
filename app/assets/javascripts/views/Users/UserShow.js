@@ -10,19 +10,24 @@ OurLinks.Views.UserShow = Backbone.CompositeView.extend({
     this.groups = this.model.groups()
     this.groups.fetch({
       url: 'api/users/'+OurLinks.currentUserId+'/groups'});
-    this.listenTo(this.groups, 'sync', this.render);
-    this.listenTo(this.groups, 'add', this.addGroup);
+    // this.listenTo(this.groups, 'sync', this.render);
+    // this.listenTo(this.groups, 'add', this.addGroup);
 
 
     this.tags = OurLinks.tags;
-    // this.listenTo(this.groups, 'remove', this.removeGroup);
-    this.groups.each(function (group) {
-      this.addGroup(group)
-    }.bind(this))
+    this.listenTo(this.groups, 'sync', this.addGroupIndex);
+    // this.groups.each(function (group) {
+    //   this.addGroup(group)
+    // }.bind(this))
 
     OurLinks.filteredPosts = new OurLinks.Collections.Posts();
     this.addFilters();
     this.addPostsView();
+  },
+
+  addGroupIndex: function () {
+    var view = new OurLinks.Views.GroupIndex({collection: this.groups, joinButton: true, title: true});
+    this.addSubview('.user-groups', view)
   },
 
   addPostsView: function () {
@@ -56,10 +61,10 @@ OurLinks.Views.UserShow = Backbone.CompositeView.extend({
     });
   },
 
-  addGroup: function (group) {
-
-    var view = new OurLinks.Views.GroupIndexItem({model: group});
-    this.addSubview('.user-groups', view)
-  }
+  // addGroup: function (group) {
+  //
+  //   var view = new OurLinks.Views.GroupIndexItem({model: group});
+  //   this.addSubview('.user-groups', view)
+  // }
 
 })
