@@ -16,7 +16,7 @@ class Api::PostsController < ApplicationController
     if params[:title]
 
       @posts = Post.joins(:link_memberships).where('link_memberships.group_id in (?)', current_user.group_ids)
-      .where('posts.title LIKE ?', "%#{params[:title]}%")
+      .where('lower(posts.title) LIKE ?', "%#{params[:title].downcase}%")
       #query for matching posts
     elsif params[:user_id]
       @posts = current_user.liked_posts
