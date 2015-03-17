@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  validates :user_id, :title, :url, presence: true
+  validates :user_id, :title, :url, :group_ids, :tag_ids, presence: true
 
   belongs_to :user
 

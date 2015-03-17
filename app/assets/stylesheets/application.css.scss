@@ -183,6 +183,12 @@ font-size: 16px;
   font-size: 16px
 }
 
+.alert{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 5px
+}
+
 
 // _____________________________________
 body{
@@ -216,8 +222,8 @@ opacity: 0.5;
 
 .modal-content {
 position: absolute;
-width: 400px;
-height: 575px;
+width: 550px;
+height: 700px;
 // background-color: white;
 margin-left: 50%;
 transform: translateX(-50%);
