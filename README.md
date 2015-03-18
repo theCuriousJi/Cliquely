@@ -1,6 +1,6 @@
 OurLinks
 Heroku link
-[Cliquely](https://www.cliquely.io)
+[Cliquely](cliquely.io)
 
 Minimum Viable Product
 
