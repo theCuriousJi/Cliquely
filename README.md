@@ -1,4 +1,4 @@
-The new name for the OurLinks project is Cliquely
+# Cliquely (Formerly known as OurLinks)
 
 [Cliquely](http://www.cliquely.io)
 
