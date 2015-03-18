@@ -1,4 +1,4 @@
-# Cliquely (Formerly known as OurLinks)
+# Cliquely
 
 [Cliquely](http://www.cliquely.io)
 
