@@ -1,5 +1,6 @@
 The new name for the OurLinks project is Cliquely
-[Cliquely](www.cliquely.io)
+
+[Cliquely](http://www.cliquely.io)
 
 Minimum Viable Product
 
