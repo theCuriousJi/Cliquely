@@ -1,6 +1,5 @@
-OurLinks
-Heroku link
-[Cliquely](cliquely.io)
+The new name for the OurLinks project is Cliquely
+[Cliquely](www.cliquely.io)
 
 Minimum Viable Product
 
