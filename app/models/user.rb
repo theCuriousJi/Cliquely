@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   dependent: :destroy
   )
 
+  has_many :posts
+
   has_many :likes,
   dependent: :destroy
 

@@ -20,8 +20,8 @@ OurLinks.Views.Navbar = Backbone.CompositeView.extend({
 
   search: function (event) {
     event.preventDefault()
-    $currentTarget = $(event.currentTarget);
-    $search = $('form.search')
+    var $currentTarget = $(event.currentTarget);
+    var $search = $('form.search')
     var query = $search.find('.query').val()
     OurLinks.filteredPosts.fetch({data: {title: query} } )
 

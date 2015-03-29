@@ -12,12 +12,9 @@ Group.create!([
   {title: "Chi-town Crew", description: ""}
 ])
 GroupMembership.create!([
-  {user_id: 2, group_id: 1},
-  {user_id: 2, group_id: 2},
   {user_id: 1, group_id: 1},
   {user_id: 1, group_id: 2},
   {user_id: 1, group_id: 3},
-  {user_id: 2, group_id: 3},
   {user_id: 4, group_id: 3}
 ])
 GroupMessage.create!([
@@ -49,7 +46,6 @@ Post.create!([
   {title: "2015 NFL Mock Draft: Post-Combine Update", url: "http://bleacherreport.com/articles/2374619-2015-nfl-mock-draft-post-combine-update?utm_source=facebook.com&utm_medium=referral&utm_campaign=programming", description: "", user_id: 1}, #21
   {title: "Great site for finding new music", url: "http://22tracks.com/", description: "This site is great if you're looking for a a rad playlist to jam to. All genres imaginable", user_id: 2}, #22
   {title: "Simpler? Big-O", url: "http://nathanmlong.com/2015/03/understanding-big-o-notation/", description: "", user_id: 4}, #23
-  {title: "Why China's economy is slowing", url: "http://www.economist.com/blogs/economist-explains/2015/03/economist-explains-8", description: "", user_id: 2}, #24
 ])
 
 LinkMembership.create!([
@@ -78,8 +74,7 @@ LinkMembership.create!([
   {post_id: 20, group_id: 2},
   {post_id: 21, group_id: 2},
   {post_id: 22, group_id: 1},
-  {post_id: 23, group_id: 3},
-  {post_id: 24, group_id: 2}
+  {post_id: 23, group_id: 3}
 ])
 
 Tag.create!([
@@ -122,8 +117,7 @@ Tagging.create!([
   {post_id: 21, tag_id: 7},
   {post_id: 22, tag_id: 3},
   {post_id: 23, tag_id: 8},
-  {post_id: 23, tag_id: 9},
-  {post_id: 24, tag_id: 1}
+  {post_id: 23, tag_id: 9}
 ])
 
 Comment.create!([
@@ -131,7 +125,6 @@ Comment.create!([
   {text: "Diggin it", post_id: 1, user_id: 1},
   {text: "I just want to give her all the stars", post_id: 7, user_id: 3},
   {text: "This track is great too. \r\nhttps://www.youtube.com/watch?v=Coyi5HAkuYo", post_id: 5, user_id: 1},
-  {text: "This is awesome", post_id: 22, user_id: 2},
   {text: "Yeah I'm really into this", post_id: 22, user_id: 1},
   {text: "great interview", post_id: 12, user_id: 1},
   {text: "I love the Relax and House playlists", post_id: 22, user_id: 3},
