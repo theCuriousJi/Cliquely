@@ -1,4 +1,19 @@
-<div class="main-conatiner">
+<div class="tutorial-container"></div>
+<div id="form"></div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 ">
+      <h2 class="title">What's new?</h2>
+    </div>
+
+    <div class="col-md-8">
+      <div class="root-forms">
+        <a id="new-post" class="new-post" href="#">Share Something!</a>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="animated fadeInLeft col-md-3">
       <div id="group-filter">
@@ -9,19 +24,19 @@
         <ul class="tags"> </ul>
       </div>
 
-        <div id="user-groups" class="clearfix" >
-          <h3>My Groups</h3>
-        <ul class="user-groups"> </ul>
-      </div>
+      <div id="user-groups" class="clearfix" >
+        <h3>My Groups</h3>
+      <ul class="user-groups"> </ul>
+    </div>
     </div>
 
-    <div class="animated fadeInUp col-md-8">
+    <div class="animated fadeInUp col-md-8 filtered-feed">
       <h2 class="title"><%=user.escape('fname')%>'s Favorited Links</h2>
       <ul class="posts"> </ul>
     </div>
 
   </div>
-
-
-
 </div>
+
+
+<div class="new-item"> </div>

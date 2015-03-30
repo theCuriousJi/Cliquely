@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
     GroupMembership.create!({user_id: user.id, group_id: 1})
     GroupMembership.create!({user_id: user.id, group_id: 2})
     GroupMembership.create!({user_id: user.id, group_id: 3})
-    Post.create!(title: "Why China's economy is slowing", url: "http://www.economist.com/blogs/economist-explains/2015/03/economist-explains-8", description: "", user_id: user.id, group_ids: [2], tag_ids: [4])
+    Post.create!(title: "Why China's economy is slowing", url: "http://www.economist.com/blogs/economist-explains/2015/03/economist-explains-8", description: "", user_id: user.id, group_ids: [2], tag_ids: [1,4])
     Comment.create!({text: "This is awesome", post_id: 22, user_id: 2},)
 
   end
