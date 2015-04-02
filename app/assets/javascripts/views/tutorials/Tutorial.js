@@ -147,8 +147,8 @@ generateTour: function () {
   });
 
   this.tour.addStep({
-    title: "User Profile",
-    text: "User's have their own profiles which store all posts that a user has liked. The same filter options are available on the user profile.",
+    title: "Favorites",
+    text: "Users can access all the posts that that he / she has liked.",
     attachTo: "#profile",
     scrollTo: false,
     tetherOptions: {
@@ -178,7 +178,7 @@ generateTour: function () {
 
   this.tour.addStep({
     title: "Search for Posts",
-    text: "Search for old or new posts. Try searching for 'music' or 'Larry David'.",
+    text: "Search for old or new posts. Try searching for 'Larry David'.",
     attachTo: ".query",
     scrollTo: false,
     tetherOptions: {
