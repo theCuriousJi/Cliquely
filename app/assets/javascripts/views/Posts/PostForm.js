@@ -18,6 +18,7 @@ OurLinks.Views.PostForm = Backbone.View.extend({
   create: function (event) {
     event.preventDefault();
     var data = this.$el.serializeJSON()
+    debugger
     var post = new OurLinks.Models.Post(data);
     var that = this;
     post.save( {}, {

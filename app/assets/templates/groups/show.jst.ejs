@@ -12,7 +12,7 @@
       <span>Members</span>
       <ul class="group-members">
         <%group.members().each(function(member) { %>
-        <a href="#users/<%=member.id%>"><%=member.escape('fname')%></a> <br>
+        <span><%=member.escape('fname')%></span> <br>
 
         <%}) %>
       </ul>
