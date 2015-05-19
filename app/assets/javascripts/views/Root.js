@@ -1,4 +1,4 @@
-OurLinks.Views.Root = Backbone.CompositeView.extend({
+aOurLinks.Views.Root = Backbone.CompositeView.extend({
   template: JST['root'],
 
   initialize: function (options) {
