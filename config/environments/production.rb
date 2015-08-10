@@ -75,7 +75,7 @@ ActionMailer::Base.smtp_settings = {
   :user_name      => ENV['username'],
   :password       => ENV['password'],
   :authentication => :plain,
-}}
+}
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
