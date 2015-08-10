@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'newrelic_rpm'
 gem "animate-rails"
 gem "font-awesome-rails"
+gem 'figaro'
 
 
 # Use ActiveModel has_secure_password
